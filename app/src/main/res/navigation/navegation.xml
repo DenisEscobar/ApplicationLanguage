@@ -15,10 +15,17 @@
             app:destination="@id/secondFragment"
             app:popUpTo="@id/firstFragment"
             app:popUpToInclusive="false" />
+        <argument
+            android:name="num"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
         android:name="com.example.applicationlanguage.SecondFragment"
         android:label="fragment_second"
-        tools:layout="@layout/fragment_second" />
+        tools:layout="@layout/fragment_second" >
+        <argument
+            android:name="num"
+            app:argType="integer" />
+    </fragment>
 </navigation>

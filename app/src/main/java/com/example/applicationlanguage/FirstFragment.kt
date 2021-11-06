@@ -12,12 +12,15 @@ class FirstFragment : Fragment() {
    override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
        val binding = DataBindingUtil.inflate<FragmentFirstBinding>(inflater,
            R.layout.fragment_first,container,false)
         binding.button.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
         }
+       binding.button.setOnClickListener { view : View ->
+           view.findNavController().navigate(FirstFragmentDirections.actionFirstFragmentToSecondFragment(10))
+       }
        setHasOptionsMenu(true)
        return binding.root
     }
