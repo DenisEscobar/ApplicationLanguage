@@ -5,12 +5,11 @@ plugins {
 apply plugin: 'androidx.navigation.safeargs'
 
 android {
-    dataBinding {
-        //noinspection DataBindingWithoutKapt
-        enabled = true
-    }
     compileSdk 31
 
+    buildFeatures {
+        dataBinding true
+    }
     defaultConfig {
         applicationId "com.example.applicationlanguage"
         minSdk 22

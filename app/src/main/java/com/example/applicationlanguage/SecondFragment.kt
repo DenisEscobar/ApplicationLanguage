@@ -15,7 +15,7 @@ class SecondFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val binding = DataBindingUtil.inflate<FragmentSecondBinding>(inflater,
-            R.layout.fragment_first,container,false)
+            R.layout.fragment_second,container,false)
         val args = SecondFragmentArgs.fromBundle(requireArguments())
         Toast.makeText(context, "Num: ${args.num}", Toast.LENGTH_LONG).show()
 
