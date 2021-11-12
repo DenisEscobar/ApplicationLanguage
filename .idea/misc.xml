@@ -11,6 +11,9 @@
         <entry key="..\:/Users/Denis/AndroidStudioProjects/ApplicationLanguage/app/src/main/res/menu/option_menu.xml" value="0.259375" />
         <entry key="..\:/Users/feres/AndroidStudioProjects/ApplicationLanguage/app/src/main/res/drawable/splashscreen.xml" value="0.2203125" />
         <entry key="..\:/Users/feres/AndroidStudioProjects/ApplicationLanguage/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/feres/AndroidStudioProjects/ApplicationLanguage/app/src/main/res/layout/fragment_idioma.xml" value="0.25" />
+        <entry key="..\:/Users/feres/AndroidStudioProjects/ApplicationLanguage/app/src/main/res/layout/fragment_login.xml" value="0.18" />
+        <entry key="..\:/Users/feres/AndroidStudioProjects/ApplicationLanguage/app/src/main/res/layout/fragment_registre.xml" value="0.1" />
       </map>
     </option>
   </component>

@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@color/colorPrimary"/>
-    <item android:layout_height="100dp"
-        android:layout_width="100dp"
-        android:width="100dp"
-        android:height="100dp">
+    <item>
         <bitmap android:src="@mipmap/languagelogo"
-            android:gravity="center"
-            android:width="100dp"
-            android:height="100dp"/>
+            android:gravity="fill"/>
     </item>
 </layer-list>
