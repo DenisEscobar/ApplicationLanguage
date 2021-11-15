@@ -20,7 +20,7 @@ class ParaulasOTestFragment : Fragment() {
             view.findNavController().navigate(R.id.action_paraulasOTestFragment_to_testFragment)
         }
         binding.buttonGoVeureParaules.setOnClickListener { view : View ->
-            //view.findNavController().navigate(R.id.action_paraulasOTestFragment_to_veureFragment)
+            view.findNavController().navigate(R.id.action_paraulasOTestFragment_to_mostrarFragment)
         }
         return binding.root
     }
