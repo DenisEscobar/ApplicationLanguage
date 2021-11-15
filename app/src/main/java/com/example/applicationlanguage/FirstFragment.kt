@@ -15,12 +15,16 @@ class FirstFragment : Fragment() {
     ): View {
        val binding = DataBindingUtil.inflate<FragmentFirstBinding>(inflater,
            R.layout.fragment_first,container,false)
-        binding.button.setOnClickListener { view : View ->
-            view.findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
+        binding.buttonGoIdioma.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_firstFragment_to_idiomaFragment)
         }
-       binding.button.setOnClickListener { view : View ->
-           view.findNavController().navigate(FirstFragmentDirections.actionFirstFragmentToSecondFragment(10))
+       binding.buttonGoLogin.setOnClickListener { view : View ->
+           view.findNavController().navigate(R.id.action_firstFragment_to_loginFragment)
        }
+       binding.buttonGoRegister.setOnClickListener { view : View ->
+           view.findNavController().navigate(R.id.action_firstFragment_to_registreFragment)
+       }
+
        setHasOptionsMenu(true)
        return binding.root
     }

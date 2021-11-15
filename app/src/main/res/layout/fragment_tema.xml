@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".TemaFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/buttonParaulas"
+            android:layout_width="182dp"
+            android:layout_height="149dp"
+            android:layout_marginStart="16dp"
+            android:text="PARAULAS"
+            app:cornerRadius="90"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonFrances"
+            app:layout_constraintHorizontal_bias="0.516"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.371" />
+
+        <Button
+            android:id="@+id/buttonNumeros"
+            android:layout_width="182dp"
+            android:layout_height="149dp"
+            android:text="NUMEROS"
+            app:cornerRadius="90"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.93"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.371" />
+
+        <Button
+            android:id="@+id/buttonAlfabeto"
+            android:layout_width="182dp"
+            android:layout_height="149dp"
+            android:layout_marginStart="16dp"
+            android:text="ALFABETO"
+            app:cornerRadius="90"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonJapones"
+            app:layout_constraintHorizontal_bias="0.444"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonParaulas"
+            app:layout_constraintVertical_bias="0.119" />
+
+        <Button
+            android:id="@+id/buttonFrases"
+            android:layout_width="182dp"
+            android:layout_height="149dp"
+            android:text="FRASES"
+            app:cornerRadius="90"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.93"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonNumeros"
+            app:layout_constraintVertical_bias="0.119" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

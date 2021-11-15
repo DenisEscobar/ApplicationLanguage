@@ -5,13 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import com.example.applicationlanguage.databinding.FragmentRegistreBinding
 
 class RegistreFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_registre, container, false)
+        val binding = DataBindingUtil.inflate<FragmentRegistreBinding>(inflater,
+            R.layout.fragment_registre,container,false)
+        binding.registrarte.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_registreFragment_to_idiomaFragment)
+        }
+        return binding.root
     }
 }

@@ -11,21 +11,76 @@
         android:label="fragment_first"
         tools:layout="@layout/fragment_first" >
         <action
-            android:id="@+id/action_firstFragment_to_secondFragment"
-            app:destination="@id/secondFragment"
-            app:popUpTo="@id/firstFragment"
-            app:popUpToInclusive="false" />
-        <argument
-            android:name="num"
-            app:argType="integer" />
+            android:id="@+id/action_firstFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_registreFragment"
+            app:destination="@id/registreFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_idiomaFragment"
+            app:destination="@id/idiomaFragment" />
     </fragment>
     <fragment
-        android:id="@+id/secondFragment"
-        android:name="com.example.applicationlanguage.SecondFragment"
-        android:label="fragment_second"
-        tools:layout="@layout/fragment_second" >
-        <argument
-            android:name="num"
-            app:argType="integer" />
+        android:id="@+id/loginFragment"
+        android:name="com.example.applicationlanguage.loginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_idiomaFragment"
+            app:destination="@id/idiomaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registreFragment"
+        android:name="com.example.applicationlanguage.RegistreFragment"
+        android:label="fragment_registre"
+        tools:layout="@layout/fragment_registre" >
+        <action
+            android:id="@+id/action_registreFragment_to_idiomaFragment"
+            app:destination="@id/idiomaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/idiomaFragment"
+        android:name="com.example.applicationlanguage.IdiomaFragment"
+        android:label="fragment_idioma"
+        tools:layout="@layout/fragment_idioma" >
+        <action
+            android:id="@+id/action_idiomaFragment_to_temaFragment"
+            app:destination="@id/temaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/temaFragment"
+        android:name="com.example.applicationlanguage.TemaFragment"
+        android:label="fragment_tema"
+        tools:layout="@layout/fragment_tema" >
+        <action
+            android:id="@+id/action_temaFragment_to_paraulasOTestFragment"
+            app:destination="@id/paraulasOTestFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paraulasOTestFragment"
+        android:name="com.example.applicationlanguage.ParaulasOTestFragment"
+        android:label="fragment_paraulas_o_test"
+        tools:layout="@layout/fragment_paraulas_o_test" >
+        <action
+            android:id="@+id/action_paraulasOTestFragment_to_testFragment"
+            app:destination="@id/testFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/testFragment"
+        android:name="com.example.applicationlanguage.TestFragment"
+        android:label="fragment_test"
+        tools:layout="@layout/fragment_test" >
+        <action
+            android:id="@+id/action_testFragment_to_finTestFragment"
+            app:destination="@id/finTestFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/finTestFragment"
+        android:name="com.example.applicationlanguage.FinTestFragment"
+        android:label="fragment_fin_test"
+        tools:layout="@layout/fragment_fin_test" >
+        <action
+            android:id="@+id/action_finTestFragment_to_temaFragment"
+            app:destination="@id/temaFragment" />
     </fragment>
 </navigation>
