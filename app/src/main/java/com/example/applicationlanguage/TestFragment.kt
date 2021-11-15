@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.applicationlanguage.databinding.FragmentTestBinding
 
@@ -17,6 +19,23 @@ class TestFragment : Fragment() {
         var con=0
         val binding = DataBindingUtil.inflate<FragmentTestBinding>(inflater,
             R.layout.fragment_test,container,false)
+
+
+        var tema=""
+        var conocimiento=""
+        var idioma=""
+        val model = ViewModelProvider(requireActivity()).get(ViewModel::class.java)
+        model.idioma.observe(viewLifecycleOwner, Observer {
+            idioma = it
+        })
+        model.tema.observe(viewLifecycleOwner, Observer {
+            tema = it
+        })
+        model.conocimiento.observe(viewLifecycleOwner, Observer {
+            conocimiento = it
+        })
+
+
         binding.buttonOpcion1.setOnClickListener {view: View ->
 con++
             if(con>=10){
