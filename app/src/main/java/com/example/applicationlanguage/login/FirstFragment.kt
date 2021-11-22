@@ -1,4 +1,4 @@
-package com.example.applicationlanguage
+package com.example.applicationlanguage.login
 
 import android.os.Bundle
 import android.view.*
@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.example.applicationlanguage.R
 import com.example.applicationlanguage.databinding.FragmentFirstBinding
 
 class FirstFragment : Fragment() {

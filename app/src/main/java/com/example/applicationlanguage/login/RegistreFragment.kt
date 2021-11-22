@@ -1,4 +1,4 @@
-package com.example.applicationlanguage
+package com.example.applicationlanguage.login
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import com.example.applicationlanguage.R
 import com.example.applicationlanguage.databinding.FragmentRegistreBinding
 
 class RegistreFragment : Fragment() {

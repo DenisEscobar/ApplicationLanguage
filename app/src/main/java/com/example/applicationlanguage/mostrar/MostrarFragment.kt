@@ -1,4 +1,4 @@
-package com.example.applicationlanguage
+package com.example.applicationlanguage.mostrar
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
+import com.example.applicationlanguage.R
+import com.example.applicationlanguage.ViewModel
 import com.example.applicationlanguage.databinding.FragmentMostrarBinding
 
 class MostrarFragment : Fragment() {
@@ -26,6 +27,7 @@ class MostrarFragment : Fragment() {
         val model = ViewModelProvider(requireActivity()).get(ViewModel::class.java)
         model.idioma.observe(viewLifecycleOwner, Observer {
             idioma = it
+            //binding.textViewmostrar.text = idioma
         })
         model.tema.observe(viewLifecycleOwner, Observer {
             tema = it
@@ -33,7 +35,8 @@ class MostrarFragment : Fragment() {
         model.conocimiento.observe(viewLifecycleOwner, Observer {
             conocimiento = it
         })
-
+        var tex=idioma+": "+tema+": "+conocimiento
+        binding.textViewmostrar.text = tex
         return binding.root
     }
 }

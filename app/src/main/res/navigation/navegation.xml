@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/firstFragment"
-        android:name="com.example.applicationlanguage.FirstFragment"
+        android:name="com.example.applicationlanguage.login.FirstFragment"
         android:label="fragment_first"
         tools:layout="@layout/fragment_first" >
         <action
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.applicationlanguage.loginFragment"
+        android:name="com.example.applicationlanguage.login.loginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -35,7 +35,7 @@
     </fragment>
     <fragment
         android:id="@+id/registreFragment"
-        android:name="com.example.applicationlanguage.RegistreFragment"
+        android:name="com.example.applicationlanguage.login.RegistreFragment"
         android:label="fragment_registre"
         tools:layout="@layout/fragment_registre" >
         <action
@@ -46,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/idiomaFragment"
-        android:name="com.example.applicationlanguage.IdiomaFragment"
+        android:name="com.example.applicationlanguage.idioma.IdiomaFragment"
         android:label="fragment_idioma"
         tools:layout="@layout/fragment_idioma" >
         <action
@@ -55,7 +55,7 @@
     </fragment>
     <fragment
         android:id="@+id/temaFragment"
-        android:name="com.example.applicationlanguage.TemaFragment"
+        android:name="com.example.applicationlanguage.idioma.TemaFragment"
         android:label="fragment_tema"
         tools:layout="@layout/fragment_tema" >
         <action
@@ -67,7 +67,7 @@
     </fragment>
     <fragment
         android:id="@+id/paraulasOTestFragment"
-        android:name="com.example.applicationlanguage.ParaulasOTestFragment"
+        android:name="com.example.applicationlanguage.idioma.ParaulasOTestFragment"
         android:label="fragment_paraulas_o_test"
         tools:layout="@layout/fragment_paraulas_o_test" >
         <action
@@ -79,7 +79,7 @@
     </fragment>
     <fragment
         android:id="@+id/testFragment"
-        android:name="com.example.applicationlanguage.TestFragment"
+        android:name="com.example.applicationlanguage.test.TestFragment"
         android:label="fragment_test"
         tools:layout="@layout/fragment_test" >
         <action
@@ -90,7 +90,7 @@
     </fragment>
     <fragment
         android:id="@+id/finTestFragment"
-        android:name="com.example.applicationlanguage.FinTestFragment"
+        android:name="com.example.applicationlanguage.test.FinTestFragment"
         android:label="fragment_fin_test"
         tools:layout="@layout/fragment_fin_test" >
         <action
@@ -101,7 +101,7 @@
     </fragment>
     <fragment
         android:id="@+id/conocimientoFragment"
-        android:name="com.example.applicationlanguage.ConocimientoFragment"
+        android:name="com.example.applicationlanguage.idioma.ConocimientoFragment"
         android:label="fragment_conocimiento"
         tools:layout="@layout/fragment_conocimiento" >
         <action
@@ -110,7 +110,7 @@
     </fragment>
     <fragment
         android:id="@+id/mostrarFragment"
-        android:name="com.example.applicationlanguage.MostrarFragment"
+        android:name="com.example.applicationlanguage.mostrar.MostrarFragment"
         android:label="fragment_mostrar"
         tools:layout="@layout/fragment_mostrar" />
 </navigation>

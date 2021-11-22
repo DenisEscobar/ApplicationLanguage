@@ -1,4 +1,4 @@
-package com.example.applicationlanguage
+package com.example.applicationlanguage.test
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +9,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import com.example.applicationlanguage.R
+import com.example.applicationlanguage.ViewModel
 import com.example.applicationlanguage.databinding.FragmentTestBinding
 
 class TestFragment : Fragment() {
@@ -38,25 +40,25 @@ class TestFragment : Fragment() {
 
         binding.buttonOpcion1.setOnClickListener {view: View ->
 con++
-            if(con>=10){
+            if(con>=10){con=0
                      view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
             }
         }
         binding.buttonOpcion2.setOnClickListener {view: View ->
             con++
-            if(con>=10){
+            if(con>=10){con=0
                 view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
             }
         }
         binding.buttonOpcion3.setOnClickListener {view: View ->
             con++
-            if(con>=10){
+            if(con>=10){con=0
                 view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
             }
         }
         binding.buttonOpcion4.setOnClickListener {view: View ->
             con++
-            if(con>=10){
+            if(con>=10){con=0
                 view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
             }
         }

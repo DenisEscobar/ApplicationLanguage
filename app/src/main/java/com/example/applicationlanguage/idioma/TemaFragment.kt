@@ -1,4 +1,4 @@
-package com.example.applicationlanguage
+package com.example.applicationlanguage.idioma
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import com.example.applicationlanguage.R
+import com.example.applicationlanguage.ViewModel
 import com.example.applicationlanguage.databinding.FragmentTemaBinding
 
 class TemaFragment : Fragment() {
