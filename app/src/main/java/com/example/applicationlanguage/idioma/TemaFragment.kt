@@ -9,11 +9,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.applicationlanguage.R
-import com.example.applicationlanguage.ViewModel
+import com.example.applicationlanguage.ShareViewModel
 import com.example.applicationlanguage.databinding.FragmentTemaBinding
 
 class TemaFragment : Fragment() {
-    lateinit var model: ViewModel
+    lateinit var modelShare: ShareViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -23,28 +23,28 @@ class TemaFragment : Fragment() {
         binding.buttonNumeros.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_temaFragment_to_paraulasOTestFragment)
             var tema="numero"
-            model = ViewModelProvider(requireActivity()).get(ViewModel::class.java)
-            model.sendtema(tema.toString())
-            model.sendconocimiento(tema.toString())
+            modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
+            modelShare.sendtema(tema.toString())
+            modelShare.sendconocimiento(tema.toString())
         }
         binding.buttonAlfabeto.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_temaFragment_to_paraulasOTestFragment)
             var tema="alfabeto"
-            model = ViewModelProvider(requireActivity()).get(ViewModel::class.java)
-            model.sendtema(tema.toString())
-            model.sendconocimiento(tema.toString())
+            modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
+            modelShare.sendtema(tema.toString())
+            modelShare.sendconocimiento(tema.toString())
         }
         binding.buttonFrases.setOnClickListener { view:View ->
             view.findNavController().navigate(R.id.action_temaFragment_to_conocimientoFragment)
             var tema="frases"
-            model = ViewModelProvider(requireActivity()).get(ViewModel::class.java)
-            model.sendtema(tema.toString())
+            modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
+            modelShare.sendtema(tema.toString())
         }
         binding.buttonParaulas.setOnClickListener { view:View ->
             view.findNavController().navigate(R.id.action_temaFragment_to_conocimientoFragment)
             var tema="vocabulario"
-            model = ViewModelProvider(requireActivity()).get(ViewModel::class.java)
-            model.sendtema(tema.toString())
+            modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
+            modelShare.sendtema(tema.toString())
         }
 
         return binding.root

@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.applicationlanguage.R
-import com.example.applicationlanguage.ViewModel
+import com.example.applicationlanguage.ShareViewModel
 import com.example.applicationlanguage.databinding.FragmentTestBinding
 
 class TestFragment : Fragment() {
@@ -26,7 +26,7 @@ class TestFragment : Fragment() {
         var tema=""
         var conocimiento=""
         var idioma=""
-        val model = ViewModelProvider(requireActivity()).get(ViewModel::class.java)
+        val model = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
         model.idioma.observe(viewLifecycleOwner, Observer {
             idioma = it
         })

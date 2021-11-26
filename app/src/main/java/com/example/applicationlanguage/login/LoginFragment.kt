@@ -10,7 +10,7 @@ import androidx.navigation.findNavController
 import com.example.applicationlanguage.R
 import com.example.applicationlanguage.databinding.FragmentLoginBinding
 
-class loginFragment : Fragment() {
+class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
