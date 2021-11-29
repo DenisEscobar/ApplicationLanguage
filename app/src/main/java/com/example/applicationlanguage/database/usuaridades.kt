@@ -7,6 +7,8 @@ import androidx.room.Entity
 @Entity(tableName="dades")
 data class usuaridades(
     @PrimaryKey
+    var id:Long=0L,
+    @ColumnInfo(name="id_usuari")
     var userid:Long=0L,
     @ColumnInfo(name="id_idioma")
     var idiomaid: String="",
