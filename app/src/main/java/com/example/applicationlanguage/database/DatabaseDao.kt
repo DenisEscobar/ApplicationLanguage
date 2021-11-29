@@ -10,19 +10,17 @@ interface DatabaseDao {
     //usuari
     @Insert
     suspend fun insertuser(usuari: usuari)
-
     @Query("SELECT * FROM usuari ORDER BY userid DESC")
     suspend fun getAlluser(): LiveData<List<usuari>>
-//
     @Query("SELECT name,password FROM usuari WHERE userid=':id'")
     suspend fun getuser(id:String): usuari
+    @Query("SELECT password FROM usuari WHERE name=':name'")
+    suspend fun getpass(name:String):usuari
 
     //usuaridades
     @Insert
     suspend fun insertdades(info: usuaridades)
 
-    @Query("SELECT * FROM dades ORDER BY id_usuari DESC LIMIT 1")
-    suspend fun getdades():usuaridades
     @Query("SELECT * FROM dades WHERE id_usuari=':id'")
     suspend fun getAlldades(id:String): LiveData<List<usuaridades>>
 
