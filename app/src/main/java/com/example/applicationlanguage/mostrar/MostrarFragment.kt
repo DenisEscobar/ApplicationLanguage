@@ -34,7 +34,7 @@ class MostrarFragment : Fragment() {
         val application = requireNotNull(this.activity).application
         val dataSource = database.getInstance(application).databaseDao
         val viewModelFactory = RoomViewModelFactory(dataSource, application)
-        val sleepTrackerViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
+        val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
 
 
 

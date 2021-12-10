@@ -6,8 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.applicationlanguage.R
+import com.example.applicationlanguage.RoomViewModel
+import com.example.applicationlanguage.RoomViewModelFactory
+import com.example.applicationlanguage.database.database
 import com.example.applicationlanguage.databinding.FragmentRegistreBinding
 
 class RegistreFragment : Fragment() {
@@ -17,9 +21,26 @@ class RegistreFragment : Fragment() {
     ): View? {
         val binding = DataBindingUtil.inflate<FragmentRegistreBinding>(inflater,
             R.layout.fragment_registre,container,false)
-        binding.registrarte.setOnClickListener { view : View ->
-            view.findNavController().navigate(R.id.action_registreFragment_to_idiomaFragment)
+        if(binding.editTextTextName.toString()!=null && binding.editTextPassword.toString()!=null && binding.editTextTextEmail.toString()!=null){
+            binding.registrarte.setOnClickListener { view : View ->
+                view.findNavController().navigate(R.id.action_registreFragment_to_idiomaFragment)
+
+                val application = requireNotNull(this.activity).application
+                val dataSource = database.getInstance(application).databaseDao
+                val viewModelFactory = RoomViewModelFactory(dataSource, application)
+                val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
+                roomViewModel.onRegisterUser(binding.editTextTextName.toString(),binding.editTextPassword.toString(),binding.editTextTextEmail.toString())
+
+            }
+        }else{
+            if(binding.editTextTextName.toString()!=null){
+                if(binding.editTextPassword.toString()!=null){
+                    if(binding.editTextTextEmail.toString()!=null){
+                    }else{binding.TextViewerror.setText("el email no pot ser vuit")}
+                } else{binding.TextViewerror.setText("la contaseña no pot ser vuida")}
+            }else{binding.TextViewerror.setText("el nom no pot ser vuit")}
         }
+
         return binding.root
     }
 }
