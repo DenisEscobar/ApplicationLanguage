@@ -36,7 +36,7 @@ class MostrarFragment : Fragment() {
         val viewModelFactory = RoomViewModelFactory(dataSource, application)
         val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
         roomViewModel.verpalabras(conocimiento,idioma)
-        binding.textViewpalabra.text = roomViewModel.getpal()
+        binding.textViewpalabra.text = roomViewModel.getpal()?.numero.toString()
 
 
 

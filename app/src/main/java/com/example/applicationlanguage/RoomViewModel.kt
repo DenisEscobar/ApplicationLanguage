@@ -17,17 +17,17 @@ class RoomViewModel(
     private var toalfabeto = MutableLiveData<palabra_alfabeto?>()
     private var topalabra = MutableLiveData<palabras?>()
 private var infocorrecte=MutableLiveData<String>()
-private var palabra=MutableLiveData<String>()
+private var palabra=MutableLiveData<palabraAprenderNumero>()
     fun setinfo(text: String) {
         infocorrecte.value = text
     }
     fun getinfo(): String {
         return ""+infocorrecte.value
     }
-    fun setpal(text:String){
+    fun setpal(text: palabraAprenderNumero){
         palabra.value=text
     }
-    fun getpal(): String {return ""+palabra.value}
+    fun getpal(): palabraAprenderNumero? {return palabra.value}
 //    private fun initializeToUser(id:String) {
 //        viewModelScope.launch {
 //            touser.value = getToUserFromDatabase(id)
@@ -163,19 +163,24 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
             var idIdioma=mirarid(Idioma,conocimiento)
             if(conocimiento=="numero") {
                 var id = palabraIdNumero(idIdioma)
-                var num = palabraNumero(id.toString())
-                setpal(num.toString())
+                var i=0
+                while(i<id.size){
+                    var num = palabraNumero(id[i].toString())
+                    setpal(num)
+                    i++
+                }
+
             }else if(conocimiento=="alfabeto"){}
 
         }
     }
-    private suspend fun mirarid(idioma:String, conocimineto:String): String {
+    private fun mirarid(idioma:String, conocimineto:String): String {
         return database.getidiomaid(idioma, conocimineto)
     }
-    private suspend fun palabraIdNumero(idIdioma:String): List<Long> {
+    private fun palabraIdNumero(idIdioma:String): List<Long> {
         return database.getAllIdPalabras_numero(idIdioma)
     }
-    private suspend fun palabraNumero(idNumero:String): palabraAprenderNumero {
+    private fun palabraNumero(idNumero:String): palabraAprenderNumero {
         return database.getPalabras_numero(idNumero)
     }
 }
