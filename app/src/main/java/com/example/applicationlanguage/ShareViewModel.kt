@@ -6,9 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.applicationlanguage.database.DatabaseDao
 
-class ShareViewModel(
-    val database: DatabaseDao,
-    application: Application) : AndroidViewModel(application){
+class ShareViewModel: ViewModel(){
     val idioma = MutableLiveData<String>()
     val conocimiento = MutableLiveData<String>()
     val tema = MutableLiveData<String>()

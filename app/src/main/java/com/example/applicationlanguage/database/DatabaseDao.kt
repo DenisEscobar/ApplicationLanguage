@@ -15,7 +15,7 @@ interface DatabaseDao {
     //@Query("SELECT name,password FROM usuari WHERE userid=':id'")
     //suspend fun getuser(id:String): usuari
     @Query("SELECT password FROM usuari WHERE name=:name")
-    suspend fun getpasswd(name:String):String
+    fun getpasswd(name:String):String
 
     //usuaridades
     @Insert
@@ -35,25 +35,25 @@ interface DatabaseDao {
     suspend fun insertpalabra(palabras: palabras)
 //por conocimintos
     @Query("SELECT id FROM palabras WHERE idioma_id=:id ORDER BY id DESC")
-    suspend fun getAllIdPalabras(id: String): LiveData<List<palabras>>
+    suspend fun getAllIdPalabras(id: String): List<Long>
 
-    @Query("SELECT palabra_aprender,palabra_local FROM palabras WHERE id=:id")
-    suspend fun getPalabras(id: String): palabras
+    @Query("SELECT palabra_aprender AS palabraApre,palabra_local AS palabraLocal FROM palabras WHERE id=:id")
+    suspend fun getPalabras(id: String): List<palabraAprender>
 
     //palabra_alfabeto
     @Insert
     suspend fun insert_alfabeto(alfabeto: palabra_alfabeto)
-    @Query("SELECT id FROM palabra_alfabeto WHERE idioma_id=:id ORDER BY id DESC")
-    suspend fun getAllIdPalabras_alfabeto(id: String): LiveData<List<palabra_alfabeto>>
+    @Query("SELECT id FROM palabra_alfabeto WHERE idioma_id=:idi ORDER BY id DESC")
+    suspend fun getAllIdPalabras_alfabeto(idi: String): List<Long>
     @Query("SELECT palabra_aprender,palabra_local,pronunciacio_local,pronunciacio_aprender FROM palabra_alfabeto WHERE id=:id")
-    suspend fun getPalabras_alfabeto(id: String): palabra_alfabeto
+    suspend fun getPalabras_alfabeto(id: String): palabraAprenderAlfabeto
 
     //palabra_numero
     @Insert
     suspend fun insert_numero(numero: palabra_numero)
     @Query("SELECT id FROM palabra_numero WHERE idioma_id=:id ORDER BY id DESC")
-    suspend fun getAllIdPalabras_numero(id: String): LiveData<List<palabra_numero>>
+    suspend fun getAllIdPalabras_numero(id: String): List<Long>
     @Query("SELECT palabra_aprender,palabra_local,numero FROM palabra_numero WHERE id=:id")
-    suspend fun getPalabras_numero(id: String): palabra_numero
+    suspend fun getPalabras_numero(id: String): palabraAprenderNumero
 
 }

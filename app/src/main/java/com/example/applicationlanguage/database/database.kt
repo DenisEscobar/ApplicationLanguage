@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [usuari::class, usuaridades::class], version=1, exportSchema=false)
+@Database(entities = [usuari::class, usuaridades::class,palabras::class,palabra_alfabeto::class,palabra_numero::class,idioma::class], version=2, exportSchema=false)
 abstract class database: RoomDatabase() {
 
     abstract  val databaseDao:DatabaseDao
@@ -26,6 +26,7 @@ abstract class database: RoomDatabase() {
                         "lenguage_database"
                     )
                         .fallbackToDestructiveMigration()
+                        .allowMainThreadQueries()
                         .build()
                     INSTANCE = instance
                 }

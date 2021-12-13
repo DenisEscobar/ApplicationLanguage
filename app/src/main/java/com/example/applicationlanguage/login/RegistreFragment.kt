@@ -29,7 +29,7 @@ class RegistreFragment : Fragment() {
                 val dataSource = database.getInstance(application).databaseDao
                 val viewModelFactory = RoomViewModelFactory(dataSource, application)
                 val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
-                roomViewModel.onRegisterUser(binding.editTextTextName.toString(),binding.editTextPassword.toString(),binding.editTextTextEmail.toString())
+                roomViewModel.onRegisterUser(binding.editTextTextName.text.toString(),binding.editTextPassword.text.toString(),binding.editTextTextEmail.text.toString())
 
             }
         }else{

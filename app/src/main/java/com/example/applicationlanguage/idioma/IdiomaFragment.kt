@@ -22,16 +22,18 @@ class IdiomaFragment : Fragment() {
     ): View? {
         val binding = DataBindingUtil.inflate<FragmentIdiomaBinding>(inflater,
             R.layout.fragment_idioma,container,false)
-
+/*
         val application = requireNotNull(this.activity).application
         val dataSource = database.getInstance(application).databaseDao
         val viewModelFactory = RoomViewModelFactory(dataSource, application)
         modelShare = ViewModelProvider(this, viewModelFactory).get(ShareViewModel::class.java)
+*/
 
 
         binding.buttonIngles.setOnClickListener { view:View ->
             view.findNavController().navigate(R.id.action_idiomaFragment_to_temaFragment)
             var idioma="ingles"
+            modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
             //model = ViewModelProvider(requireActivity()).get(ViewModel::class.java)
             modelShare.sendidioma(idioma)
         }
