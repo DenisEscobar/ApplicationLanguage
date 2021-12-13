@@ -25,9 +25,9 @@ class MostrarFragment : Fragment() {
 
         val model = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
 
-//        var tema=model.gettema()
-  //      var conocimiento=model.getconocimiento()
-    //    var idioma=model.getidioma()
+        var tema=model.gettema()
+        var conocimiento=model.getconocimiento()
+        var idioma=model.getidioma()
 
         binding.textViewmostrar.text = model.getall()
 
@@ -35,6 +35,8 @@ class MostrarFragment : Fragment() {
         val dataSource = database.getInstance(application).databaseDao
         val viewModelFactory = RoomViewModelFactory(dataSource, application)
         val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
+        roomViewModel.verpalabras(conocimiento,idioma)
+        binding.textViewpalabra.text = roomViewModel.getpal()
 
 
 

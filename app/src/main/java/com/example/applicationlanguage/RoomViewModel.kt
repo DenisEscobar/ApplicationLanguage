@@ -17,12 +17,17 @@ class RoomViewModel(
     private var toalfabeto = MutableLiveData<palabra_alfabeto?>()
     private var topalabra = MutableLiveData<palabras?>()
 private var infocorrecte=MutableLiveData<String>()
+private var palabra=MutableLiveData<String>()
     fun setinfo(text: String) {
         infocorrecte.value = text
     }
     fun getinfo(): String {
         return ""+infocorrecte.value
     }
+    fun setpal(text:String){
+        palabra.value=text
+    }
+    fun getpal(): String {return ""+palabra.value}
 //    private fun initializeToUser(id:String) {
 //        viewModelScope.launch {
 //            touser.value = getToUserFromDatabase(id)
@@ -136,7 +141,6 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
         }
     }
 
-    private var touserpass = MutableLiveData<usuari?>()
 
     fun onLoginUser(name:String, pass:String) {
         viewModelScope.launch {
@@ -146,8 +150,6 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
 
     }
     private suspend fun comprobaruser(name:String, pass: String): String {
-        //touserpass.value?.username=name
-        //touserpass.value?.userpass = database.getpasswd(name).toString()
         if(pass==database.getpasswd(name)) {
             return "ok"
         }
@@ -156,5 +158,24 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
     private suspend fun insertuser(user: usuari) {
         database.insertuser(user)
     }
+    fun verpalabras(conocimiento:String,Idioma:String){
+        viewModelScope.launch {
+            var idIdioma=mirarid(Idioma,conocimiento)
+            if(conocimiento=="numero") {
+                var id = palabraIdNumero(idIdioma)
+                var num = palabraNumero(id.toString())
+                setpal(num.toString())
+            }else if(conocimiento=="alfabeto"){}
 
+        }
+    }
+    private suspend fun mirarid(idioma:String, conocimineto:String): String {
+        return database.getidiomaid(idioma, conocimineto)
+    }
+    private suspend fun palabraIdNumero(idIdioma:String): List<Long> {
+        return database.getAllIdPalabras_numero(idIdioma)
+    }
+    private suspend fun palabraNumero(idNumero:String): palabraAprenderNumero {
+        return database.getPalabras_numero(idNumero)
+    }
 }
