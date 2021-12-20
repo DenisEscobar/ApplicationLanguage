@@ -112,5 +112,16 @@
         android:id="@+id/mostrarFragment"
         android:name="com.example.applicationlanguage.mostrar.MostrarFragment"
         android:label="fragment_mostrar"
-        tools:layout="@layout/fragment_mostrar" />
+        tools:layout="@layout/fragment_mostrar" >
+        <action
+            android:id="@+id/action_mostrarFragment_to_alfabetoMostrarFragment"
+            app:destination="@id/alfabetoMostrarFragment"
+            app:popUpTo="@id/mostrarFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/alfabetoMostrarFragment"
+        android:name="com.example.applicationlanguage.mostrar.AlfabetoMostrarFragment"
+        android:label="fragment_alfabeto_mostrar"
+        tools:layout="@layout/fragment_alfabeto_mostrar" />
 </navigation>

@@ -17,11 +17,12 @@ import com.example.applicationlanguage.database.database
 import com.example.applicationlanguage.databinding.FragmentMostrarBinding
 
 class MostrarFragment : Fragment() {
-
+    lateinit var modelShare: ShareViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val binding = DataBindingUtil.inflate<FragmentMostrarBinding>(inflater,
             R.layout.fragment_mostrar,container,false)
 
@@ -40,12 +41,22 @@ class MostrarFragment : Fragment() {
         //roomViewModel.verpalabras(conocimiento,idioma)
         //binding.textViewpalabra.text = roomViewModel.getpal()?.numero.toString()
 val id = roomViewModel.mirarid(idioma,conocimiento)
+modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
         val recyclerView: RecyclerView = binding.recyclerView
         recyclerView.layoutManager= LinearLayoutManager(this.activity)
-        recyclerView.adapter=MostrarFragmentAdapter(
-            application,
-            roomViewModel.getnumero(id.toString())
-        )
+        if(conocimiento=="numero") {
+            recyclerView.adapter = MostrarFragmentAdapterNum(
+                application,
+                roomViewModel.getnumero(id.toString())
+            )
+        }else if(conocimiento=="alfabeto"){
+            recyclerView.adapter = MostrarFragmentAdapterAlf(
+                application,
+                roomViewModel.getAlfabeto(id.toString()),
+                modelShare
+            )
+            
+        }
 
 
 

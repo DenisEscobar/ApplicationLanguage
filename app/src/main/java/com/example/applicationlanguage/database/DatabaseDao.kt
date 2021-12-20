@@ -47,6 +47,8 @@ interface DatabaseDao {
     suspend fun getAllIdPalabras_alfabeto(idi: String): List<Long>
     @Query("SELECT palabra_aprender,palabra_local,pronunciacio_local,pronunciacio_aprender FROM palabra_alfabeto WHERE id=:id")
     suspend fun getPalabras_alfabeto(id: String): palabraAprenderAlfabeto
+    @Query("SELECT palabra_aprender,palabra_local,pronunciacio_local,pronunciacio_aprender FROM palabra_alfabeto WHERE idioma_id=:id ORDER BY id DESC")
+    fun getAllpalabras_alfabeto_id(id: String):List<palabraAprenderAlfabeto>
 
     //palabra_numero
     @Insert

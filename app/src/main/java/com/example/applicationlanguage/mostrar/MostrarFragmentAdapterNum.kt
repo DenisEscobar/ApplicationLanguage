@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.applicationlanguage.R
 import com.example.applicationlanguage.database.palabraAprenderNumero
 
-class MostrarFragmentAdapter(private val context: Context,
-                             private val list: List<palabraAprenderNumero>) : RecyclerView.Adapter<MostrarFragmentAdapter.ViewHolder>() {
+class MostrarFragmentAdapterNum(private val context: Context,
+                                private val list: List<palabraAprenderNumero>) : RecyclerView.Adapter<MostrarFragmentAdapterNum.ViewHolder>() {
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val nametv: TextView = view.findViewById(R.id.textViewNum)
         val primertv: TextView = view.findViewById(R.id.textViewPronunciacio)

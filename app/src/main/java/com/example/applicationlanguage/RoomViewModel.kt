@@ -22,6 +22,10 @@ private var palabra=MutableLiveData<palabraAprenderNumero>()
         val num=database.getAllpalabras_numero_id(id)
         return num
     }
+    fun getAlfabeto(id:String):List<palabraAprenderAlfabeto>{
+        val alf=database.getAllpalabras_alfabeto_id(id)
+        return alf
+    }
     fun setinfo(text: String) {
         infocorrecte.value = text
     }
@@ -80,7 +84,14 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
             val pala=palabras()
             val usuda=usuaridades()
 //idioma
-
+            paal.id=2
+            paal.idiomaid="1"
+            paal.aprenderpalabra="b"
+            paal.localpalabra="b"
+            paal.pronunciacio_aprender="b"
+            paal.pronunciacio_local="b"
+            insertalfabeto(paal)
+/*
             idioma.idiomaid="1"
             idioma.idioma="ingles"
             idioma.conocimiento="alfabeto"
@@ -125,7 +136,7 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
             usuda.userid=1
             usuda.idiomaid="2"
             usuda.completado=false
-            insertuserdadas(usuda)
+            insertuserdadas(usuda)*/
         }
     }
     private suspend fun insertuserdadas(dada: usuaridades) {

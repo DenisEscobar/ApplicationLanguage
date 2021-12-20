@@ -34,7 +34,6 @@ class IdiomaFragment : Fragment() {
             view.findNavController().navigate(R.id.action_idiomaFragment_to_temaFragment)
             var idioma="ingles"
             modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
-            //model = ViewModelProvider(requireActivity()).get(ViewModel::class.java)
             modelShare.sendidioma(idioma)
         }
         return binding.root
