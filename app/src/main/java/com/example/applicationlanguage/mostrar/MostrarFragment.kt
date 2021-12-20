@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.applicationlanguage.R
 import com.example.applicationlanguage.RoomViewModel
 import com.example.applicationlanguage.RoomViewModelFactory
@@ -35,8 +37,15 @@ class MostrarFragment : Fragment() {
         val dataSource = database.getInstance(application).databaseDao
         val viewModelFactory = RoomViewModelFactory(dataSource, application)
         val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
-        roomViewModel.verpalabras(conocimiento,idioma)
-        binding.textViewpalabra.text = roomViewModel.getpal()?.numero.toString()
+        //roomViewModel.verpalabras(conocimiento,idioma)
+        //binding.textViewpalabra.text = roomViewModel.getpal()?.numero.toString()
+val id = roomViewModel.mirarid(idioma,conocimiento)
+        val recyclerView: RecyclerView = binding.recyclerView
+        recyclerView.layoutManager= LinearLayoutManager(this.activity)
+        recyclerView.adapter=MostrarFragmentAdapter(
+            application,
+            roomViewModel.getnumero(id.toString())
+        )
 
 
 

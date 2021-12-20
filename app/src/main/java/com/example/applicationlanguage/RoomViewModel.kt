@@ -18,6 +18,10 @@ class RoomViewModel(
     private var topalabra = MutableLiveData<palabras?>()
 private var infocorrecte=MutableLiveData<String>()
 private var palabra=MutableLiveData<palabraAprenderNumero>()
+    fun getnumero(id: String): List<palabraAprenderNumero> {
+        val num=database.getAllpalabras_numero_id(id)
+        return num
+    }
     fun setinfo(text: String) {
         infocorrecte.value = text
     }
@@ -76,6 +80,7 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
             val pala=palabras()
             val usuda=usuaridades()
 //idioma
+
             idioma.idiomaid="1"
             idioma.idioma="ingles"
             idioma.conocimiento="alfabeto"
@@ -101,6 +106,13 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
             panu.aprenderpalabra="one"
             panu.localpalabra="uno"
             panu.numero=1
+            insertnumero(panu)
+
+            panu.id=3
+            panu.idiomaid="2"
+            panu.aprenderpalabra="two"
+            panu.localpalabra="dos"
+            panu.numero=2
             insertnumero(panu)
 //userdadas
             usuda.id=1
@@ -174,7 +186,7 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
 
         }
     }
-    private fun mirarid(idioma:String, conocimineto:String): String {
+    fun mirarid(idioma:String, conocimineto:String): String {
         return database.getidiomaid(idioma, conocimineto)
     }
     private fun palabraIdNumero(idIdioma:String): List<Long> {
