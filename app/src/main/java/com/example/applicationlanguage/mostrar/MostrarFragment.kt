@@ -47,12 +47,12 @@ modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java
         if(conocimiento=="numero") {
             recyclerView.adapter = MostrarFragmentAdapterNum(
                 application,
-                roomViewModel.getnumero(id.toString())
+                roomViewModel.getnumero(id)
             )
         }else if(conocimiento=="alfabeto"){
             recyclerView.adapter = MostrarFragmentAdapterAlf(
                 application,
-                roomViewModel.getAlfabeto(id.toString()),
+                roomViewModel.getAlfabeto(id),
                 modelShare
             )
             

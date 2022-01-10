@@ -35,14 +35,14 @@ class TemaFragment : Fragment() {
         val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
         var idiomanum = roomViewModel.database.getidiomaid(modelShare.getidioma(),"numero")
         var compnum = roomViewModel.database.getAlldades("1",idiomanum)
-        if(compnum.completado==true){
-            binding.buttonNumeros.setTextColor(Color.parseColor("#63FF33"))
-        }
-        var idiomaalfa = roomViewModel.database.getidiomaid(modelShare.getidioma(),"alfabeto")
-        var compalfa = roomViewModel.database.getAlldades("1",idiomaalfa)
-        if(compalfa.completado==true){
-            binding.buttonAlfabeto.setTextColor(Color.parseColor("#63FF33"))
-        }
+        //if(compnum.completado==true){
+        //    binding.buttonNumeros.setTextColor(Color.parseColor("#63FF33"))
+        //}
+        //var idiomaalfa = roomViewModel.database.getidiomaid(modelShare.getidioma(),"alfabeto")
+        //var compalfa = roomViewModel.database.getAlldades("1",idiomaalfa)
+        //if(compalfa.completado==true){
+        //    binding.buttonAlfabeto.setTextColor(Color.parseColor("#63FF33"))
+        //}
 
 
         binding.buttonNumeros.setOnClickListener { view : View ->
