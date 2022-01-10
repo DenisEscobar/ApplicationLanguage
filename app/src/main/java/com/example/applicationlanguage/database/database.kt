@@ -8,7 +8,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-@Database(entities = [usuari::class, usuaridades::class,palabras::class,palabra_alfabeto::class,palabra_numero::class,idioma::class], version=3, exportSchema=false)
+@Database(entities = [usuari::class, usuaridades::class,palabras::class,palabra_alfabeto::class,palabra_numero::class,idioma::class], version=4, exportSchema=false)
 abstract class database: RoomDatabase() {
 
     abstract  val databaseDao:DatabaseDao
@@ -26,7 +26,7 @@ abstract class database: RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         database::class.java,
-                        "lenguage_database"
+                        "lenguage_database_1"
                     )
                         .addCallback(object : Callback() {
                             override fun onCreate(db: SupportSQLiteDatabase) {

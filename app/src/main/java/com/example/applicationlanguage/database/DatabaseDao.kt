@@ -34,7 +34,7 @@ interface DatabaseDao {
     @Insert
     suspend fun insertpalabra(palabras: palabras)
 //por conocimintos
-    @Query("SELECT id FROM palabras WHERE idioma_id=:id ORDER BY id DESC")
+    @Query("SELECT id FROM palabras WHERE idioma_id=:id ORDER BY id ASC")
     suspend fun getAllIdPalabras(id: String): List<Long>
 
     @Query("SELECT palabra_aprender AS palabraApre,palabra_local AS palabraLocal FROM palabras WHERE id=:id")
