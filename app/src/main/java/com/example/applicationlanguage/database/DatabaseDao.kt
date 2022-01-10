@@ -59,5 +59,6 @@ interface DatabaseDao {
     fun getPalabras_numero(id: String): palabraAprenderNumero
     @Query("Select palabra_aprender, palabra_local, numero FROM palabra_numero WHERE idioma_id=:id ORDER BY id DESC")
     fun getAllpalabras_numero_id(id: String):List<palabraAprenderNumero>
-
+    @Query("Select max(id) FROM palabra_numero")
+    fun getAll_numero_id():String
 }

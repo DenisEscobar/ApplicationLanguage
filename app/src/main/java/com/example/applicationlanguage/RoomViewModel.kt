@@ -206,4 +206,7 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
     private fun palabraNumero(idNumero:String): palabraAprenderNumero {
         return database.getPalabras_numero(idNumero)
     }
+    fun getallids(): String{
+        return database.getAll_numero_id()
+    }
 }
