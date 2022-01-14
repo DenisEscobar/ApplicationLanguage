@@ -23,7 +23,7 @@ class LoginFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentLoginBinding>(inflater,
             R.layout.fragment_login,container,false)
         binding.buttonlogin.setOnClickListener {
-            if(!binding.editTextTextPersonName.text.toString().equals("") && !binding.editTextTextPassword.text.toString().equals("")){
+            if(!binding.editTextTextPersonName.text.toString().isEmpty() && !binding.editTextTextPassword.text.toString().isEmpty()){
 
                 val application = requireNotNull(this.activity).application
                 val dataSource = database.getInstance(application).databaseDao
@@ -42,13 +42,16 @@ class LoginFragment : Fragment() {
                     binding.editTextTextPersonName.setText("")
                     binding.editTextTextPassword.setText("")
                 }
+            }else{
+                if(binding.editTextTextPassword.text.toString().isEmpty()){
+                binding.textViewerrores.setText("la contaseña no pot ser vuida")}
+                if(binding.editTextTextPersonName.text.toString().isEmpty()){
+                    binding.textViewerrores.setText("el nom no pot ser vuit")}
             }
         }
-/*
-        binding.buttonlogin.setOnClickListener { view : View ->
-            view.findNavController().navigate(R.id.action_loginFragment_to_idiomaFragment)
+        binding.textViewRegister.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_loginFragment_to_registreFragment)
         }
-*/
         return binding.root
     }
 

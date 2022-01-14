@@ -32,6 +32,9 @@
             app:destination="@id/idiomaFragment"
             app:popUpTo="@id/firstFragment"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_loginFragment_to_registreFragment"
+            app:destination="@id/registreFragment" />
     </fragment>
     <fragment
         android:id="@+id/registreFragment"
