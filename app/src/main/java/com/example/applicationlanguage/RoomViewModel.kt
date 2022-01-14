@@ -17,7 +17,7 @@ class RoomViewModel(
     private var toalfabeto = MutableLiveData<palabra_alfabeto?>()
     private var topalabra = MutableLiveData<palabras?>()
 private var infocorrecte=MutableLiveData<String>()
-private var palabra=MutableLiveData<palabraAprenderNumero>()
+private var palabra=MutableLiveData<palabra_numero>()
     fun getnumero(id: String): List<palabraAprenderNumero> {
         val num=database.getAllpalabras_numero_id(id)
         return num
@@ -32,10 +32,10 @@ private var palabra=MutableLiveData<palabraAprenderNumero>()
     fun getinfo(): String {
         return ""+infocorrecte.value
     }
-    fun setpal(text: palabraAprenderNumero){
+    fun setpal(text: palabra_numero){
         palabra.value=text
     }
-    fun getpal(): palabraAprenderNumero? {return palabra.value}
+    fun getpal(): palabra_numero? {return palabra.value}
 //    private fun initializeToUser(id:String) {
 //        viewModelScope.launch {
 //            touser.value = getToUserFromDatabase(id)
@@ -203,10 +203,13 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
     fun palabraIdNumero(idIdioma:String): List<Long> {
         return database.getAllIdPalabras_numero(idIdioma)
     }
-    fun palabraNumero(idNumero:String): palabraAprenderNumero {
+    fun palabraNumero(idNumero:String): palabra_numero {
         return database.getPalabras_numero(idNumero)
     }
     fun getallids(): String{
         return database.getAll_numero_id()
+    }
+    fun getpalabra(palabra:String): palabra_numero{
+        return database.getpalabra(palabra)
     }
 }

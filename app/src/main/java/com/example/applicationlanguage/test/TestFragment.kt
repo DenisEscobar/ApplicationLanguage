@@ -49,54 +49,67 @@ class TestFragment : Fragment() {
 
         val aleatori =roomViewModel.getallids()
 
-        val ale2=0
-        val ale3=0
-        val ale4=0
-        val ale1 = (0..aleatori.toInt()).random()
+        var ale2=0
+        var ale3=0
+        var ale4=0
+        var ale1=0
+        ale1 = (1..aleatori.toInt()).random()
         do {
-            val ale2 = (0..aleatori.toInt()).random()
-        }while(ale2!=ale1)
+            ale2 = (1..aleatori.toInt()).random()
+        }while(ale2==ale1)
         do {
-            val ale3 = (0..aleatori.toInt()).random()
-        }while(ale3!=ale1 && ale3!=ale2)
+            ale3 = (1..aleatori.toInt()).random()
+        }while(ale3==ale1 || ale3==ale2)
         do{
-            val ale4 = (0..aleatori.toInt()).random()
-        }while(ale4!=ale1 && ale4!=ale2 && ale4!=ale3)
+            ale4 = (1..aleatori.toInt()).random()
+        }while(ale4==ale1 || ale4==ale2 || ale4==ale3)
+
+        val paraula=roomViewModel.palabraNumero(ale1.toString())
+        binding.buttonOpcion1.text = paraula.aprenderpalabra
+        val palabla2 = roomViewModel.palabraNumero(ale2.toString())
+        binding.buttonOpcion2.text = palabla2.aprenderpalabra
+        val paraula3=roomViewModel.palabraNumero(ale3.toString())
+        binding.buttonOpcion3.text = paraula3.aprenderpalabra
+        val paraula4=roomViewModel.palabraNumero(ale4.toString())
+        binding.buttonOpcion4.text = paraula4.aprenderpalabra
+
+
         val aleace = (1..5).random()
         if(aleace==1) {
-            binding.paraulaAEncertar.text = roomViewModel.palabraNumero(ale1.toString()).palabra_local
+            binding.paraulaaencertar.setText(paraula.localpalabra.toString())
         }else if(aleace==2){
-            binding.paraulaAEncertar.text = roomViewModel.palabraNumero(ale2.toString()).palabra_local
+            binding.paraulaaencertar.setText(palabla2.localpalabra.toString())
         }else if(aleace==3){
-            binding.paraulaAEncertar.text = roomViewModel.palabraNumero(ale3.toString()).palabra_local
+            binding.paraulaaencertar.setText(paraula3.localpalabra.toString())
         }else if(aleace==4){
-            binding.paraulaAEncertar.text = roomViewModel.palabraNumero(ale4.toString()).palabra_local
+            binding.paraulaaencertar.setText(paraula4.localpalabra.toString())
         }
-        val paraula=roomViewModel.palabraNumero(ale1.toString())
-        binding.buttonOpcion1.text = paraula.palabra_aprender
+
         binding.buttonOpcion1.setOnClickListener {view: View ->
-            if(binding.buttonOpcion1.text == binding.paraulaAEncertar){con++}
+            var palabraacertar = roomViewModel.getpalabra(binding.paraulaaencertar.toString())
+            if(binding.buttonOpcion1.text.toString().equals(palabraacertar.aprenderpalabra.toString())){con++}
             if(con>=10){con=0
                 view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
             }
         }
-        binding.buttonOpcion2.text = roomViewModel.palabraNumero(ale2.toString()).palabra_aprender
+
         binding.buttonOpcion2.setOnClickListener {view: View ->
-            if(binding.buttonOpcion1.text == binding.paraulaAEncertar){con++}
+            var palabraacertar = roomViewModel.getpalabra(binding.paraulaaencertar.toString())
+            if(binding.buttonOpcion2.text.toString().equals(palabraacertar.aprenderpalabra.toString())){con++}
             if(con>=10){con=0
                 view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
             }
         }
-        binding.buttonOpcion3.text = roomViewModel.palabraNumero(ale3.toString()).palabra_aprender
-        binding.buttonOpcion3.setOnClickListener {view: View ->
-            if(binding.buttonOpcion1.text == binding.paraulaAEncertar){con++}
+       binding.buttonOpcion3.setOnClickListener {view: View ->
+           var palabraacertar = roomViewModel.getpalabra(binding.paraulaaencertar.toString())
+            if(binding.buttonOpcion3.text.toString().equals(palabraacertar.aprenderpalabra.toString())){con++}
             if(con>=10){con=0
                 view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
             }
         }
-        binding.buttonOpcion4.text = roomViewModel.palabraNumero(ale4.toString()).palabra_aprender
         binding.buttonOpcion4.setOnClickListener {view: View ->
-            if(binding.buttonOpcion1.text == binding.paraulaAEncertar){con++}
+            var palabraacertar = roomViewModel.getpalabra(binding.paraulaaencertar.toString())
+            if(binding.buttonOpcion4.text.toString().equals(palabraacertar.aprenderpalabra.toString())){con++}
             if(con>=10){con=0
                 view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
             }

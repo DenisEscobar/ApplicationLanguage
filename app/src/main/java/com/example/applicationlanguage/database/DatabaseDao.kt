@@ -55,10 +55,13 @@ interface DatabaseDao {
     suspend fun insert_numero(numero: palabra_numero)
     @Query("SELECT id FROM palabra_numero WHERE idioma_id=:id ORDER BY id DESC")
     fun getAllIdPalabras_numero(id: String): List<Long>
-    @Query("SELECT palabra_aprender,palabra_local,numero FROM palabra_numero WHERE id=:id")
-    fun getPalabras_numero(id: String): palabraAprenderNumero
+    @Query("SELECT * FROM palabra_numero WHERE id=:id")
+    fun getPalabras_numero(id: String): palabra_numero
     @Query("Select palabra_aprender, palabra_local, numero FROM palabra_numero WHERE idioma_id=:id ORDER BY id DESC")
     fun getAllpalabras_numero_id(id: String):List<palabraAprenderNumero>
     @Query("Select max(id) FROM palabra_numero")
     fun getAll_numero_id():String
+
+    @Query("Select * FROM palabra_numero WHERE palabra_local=:local")
+    fun getpalabra(local:String):palabra_numero
 }
