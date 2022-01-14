@@ -35,11 +35,11 @@ class MostrarFragmentAdapterAlf(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = list[position]
-        holder.nametv.text = data.palabra_local
+        holder.nametv.text = data.palabra_local.uppercase()
         holder.nametv.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_mostrarFragment_to_alfabetoMostrarFragment)
 
-            smodel.sendalfa(holder.nametv.text.toString())
+            smodel.sendalfa(holder.nametv.text.toString().lowercase())
         }
     }
 

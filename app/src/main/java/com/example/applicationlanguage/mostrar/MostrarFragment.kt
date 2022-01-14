@@ -32,8 +32,6 @@ class MostrarFragment : Fragment() {
         var conocimiento=model.getconocimiento()
         var idioma=model.getidioma()
 
-        binding.textViewmostrar.text = model.getall()
-
         val application = requireNotNull(this.activity).application
         val dataSource = database.getInstance(application).databaseDao
         val viewModelFactory = RoomViewModelFactory(dataSource, application)

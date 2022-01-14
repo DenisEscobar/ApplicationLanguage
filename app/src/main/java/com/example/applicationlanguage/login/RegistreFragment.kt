@@ -13,6 +13,7 @@ import com.example.applicationlanguage.RoomViewModel
 import com.example.applicationlanguage.RoomViewModelFactory
 import com.example.applicationlanguage.database.database
 import com.example.applicationlanguage.databinding.FragmentRegistreBinding
+import com.example.applicationlanguage.sharedpref.sharedApp
 
 class RegistreFragment : Fragment() {
     override fun onCreateView(
@@ -30,6 +31,7 @@ class RegistreFragment : Fragment() {
                 val viewModelFactory = RoomViewModelFactory(dataSource, application)
                 val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
                 roomViewModel.onRegisterUser(binding.editTextTextName.text.toString(),binding.editTextPassword.text.toString(),binding.editTextTextEmail.text.toString())
+                sharedApp.prefes.name=binding.editTextTextName.text.toString()
 
             }
         }else{

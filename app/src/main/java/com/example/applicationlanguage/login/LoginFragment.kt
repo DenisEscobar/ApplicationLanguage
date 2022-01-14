@@ -13,6 +13,7 @@ import com.example.applicationlanguage.RoomViewModel
 import com.example.applicationlanguage.RoomViewModelFactory
 import com.example.applicationlanguage.database.database
 import com.example.applicationlanguage.databinding.FragmentLoginBinding
+import com.example.applicationlanguage.sharedpref.sharedApp
 
 class LoginFragment : Fragment() {
     override fun onCreateView(
@@ -32,8 +33,8 @@ class LoginFragment : Fragment() {
 
                 if(roomViewModel.getinfo()=="ok") {
                     binding.buttonlogin.setOnClickListener { view: View ->
-                        view.findNavController()
-                            .navigate(R.id.action_loginFragment_to_idiomaFragment)
+                        view.findNavController().navigate(R.id.action_loginFragment_to_idiomaFragment)
+                        sharedApp.prefes.name=binding.editTextTextPersonName.text.toString()
                     }
                     binding.buttonlogin.callOnClick()
                 }

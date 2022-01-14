@@ -8,7 +8,10 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.applicationlanguage.R
+import com.example.applicationlanguage.RoomViewModel
+import com.example.applicationlanguage.RoomViewModelFactory
 import com.example.applicationlanguage.ShareViewModel
+import com.example.applicationlanguage.database.database
 import com.example.applicationlanguage.databinding.FragmentAlfabetoMostrarBinding
 import com.example.applicationlanguage.databinding.FragmentFirstBinding
 
@@ -21,7 +24,13 @@ class AlfabetoMostrarFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentAlfabetoMostrarBinding>(inflater,
             R.layout.fragment_alfabeto_mostrar,container,false)
         modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
-        binding.textViewAlfabeto.text = modelShare.getalfa()
+        binding.textViewAlfabeto.text = modelShare.getalfa().uppercase()
+        val application = requireNotNull(this.activity).application
+        val dataSource = database.getInstance(application).databaseDao
+        val viewModelFactory = RoomViewModelFactory(dataSource, application)
+        val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
+        var pronunciacion = roomViewModel.getletra(modelShare.getalfa())
+        binding.textViewAlfabetopron.text = pronunciacion.pronunciacio_aprender.toString()
 
         return binding.root
     }

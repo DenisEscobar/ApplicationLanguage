@@ -43,11 +43,11 @@ interface DatabaseDao {
     //palabra_alfabeto
     @Insert
     suspend fun insert_alfabeto(alfabeto: palabra_alfabeto)
-    @Query("SELECT id FROM palabra_alfabeto WHERE idioma_id=:idi ORDER BY id DESC")
+    @Query("SELECT id FROM palabra_alfabeto WHERE idioma_id=:idi ORDER BY id")
     suspend fun getAllIdPalabras_alfabeto(idi: String): List<Long>
     @Query("SELECT palabra_aprender,palabra_local,pronunciacio_local,pronunciacio_aprender FROM palabra_alfabeto WHERE id=:id")
     suspend fun getPalabras_alfabeto(id: String): palabraAprenderAlfabeto
-    @Query("SELECT palabra_aprender,palabra_local,pronunciacio_local,pronunciacio_aprender FROM palabra_alfabeto WHERE idioma_id=:id ORDER BY id DESC")
+    @Query("SELECT palabra_aprender,palabra_local,pronunciacio_local,pronunciacio_aprender FROM palabra_alfabeto WHERE idioma_id=:id ORDER BY id")
     fun getAllpalabras_alfabeto_id(id: String):List<palabraAprenderAlfabeto>
 
     //palabra_numero
@@ -57,11 +57,19 @@ interface DatabaseDao {
     fun getAllIdPalabras_numero(id: String): List<Long>
     @Query("SELECT * FROM palabra_numero WHERE id=:id")
     fun getPalabras_numero(id: String): palabra_numero
-    @Query("Select palabra_aprender, palabra_local, numero FROM palabra_numero WHERE idioma_id=:id ORDER BY id DESC")
+    @Query("Select palabra_aprender, palabra_local, numero FROM palabra_numero WHERE idioma_id=:id ORDER BY id ASC")
     fun getAllpalabras_numero_id(id: String):List<palabraAprenderNumero>
     @Query("Select max(id) FROM palabra_numero")
     fun getAll_numero_id():String
 
     @Query("Select * FROM palabra_numero WHERE palabra_local=:local")
     fun getpalabra(local:String):palabra_numero
+
+    @Query("SELECT * FROM palabra_alfabeto WHERE id=:id")
+    fun getPalabras_letras(id: String): palabra_alfabeto
+    @Query("Select max(id) FROM palabra_alfabeto")
+    fun getAll_numero_id_letra():String
+    @Query("Select * FROM palabra_alfabeto WHERE palabra_local=:local")
+    fun getletra(local:String):palabra_alfabeto
+
 }
