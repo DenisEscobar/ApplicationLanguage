@@ -200,10 +200,10 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
     fun mirarid(idioma:String, conocimineto:String): String {
         return database.getidiomaid(idioma, conocimineto)
     }
-    private fun palabraIdNumero(idIdioma:String): List<Long> {
+    fun palabraIdNumero(idIdioma:String): List<Long> {
         return database.getAllIdPalabras_numero(idIdioma)
     }
-    private fun palabraNumero(idNumero:String): palabraAprenderNumero {
+    fun palabraNumero(idNumero:String): palabraAprenderNumero {
         return database.getPalabras_numero(idNumero)
     }
     fun getallids(): String{

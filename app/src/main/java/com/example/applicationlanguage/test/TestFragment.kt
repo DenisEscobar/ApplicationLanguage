@@ -16,6 +16,7 @@ import com.example.applicationlanguage.RoomViewModelFactory
 import com.example.applicationlanguage.ShareViewModel
 import com.example.applicationlanguage.database.database
 import com.example.applicationlanguage.databinding.FragmentTestBinding
+import kotlin.random.Random
 
 class TestFragment : Fragment() {
     override fun onCreateView(
@@ -47,32 +48,60 @@ class TestFragment : Fragment() {
 
 
         val aleatori =roomViewModel.getallids()
-        binding.buttonOpcion1.text = aleatori.toString()
 
+        val ale2=0
+        val ale3=0
+        val ale4=0
+        val ale1 = (0..aleatori.toInt()).random()
+        do {
+            val ale2 = (0..aleatori.toInt()).random()
+        }while(ale2!=ale1)
+        do {
+            val ale3 = (0..aleatori.toInt()).random()
+        }while(ale3!=ale1 && ale3!=ale2)
+        do{
+            val ale4 = (0..aleatori.toInt()).random()
+        }while(ale4!=ale1 && ale4!=ale2 && ale4!=ale3)
+        val aleace = (1..5).random()
+        if(aleace==1) {
+            binding.paraulaAEncertar.text = roomViewModel.palabraNumero(ale1.toString()).palabra_local
+        }else if(aleace==2){
+            binding.paraulaAEncertar.text = roomViewModel.palabraNumero(ale2.toString()).palabra_local
+        }else if(aleace==3){
+            binding.paraulaAEncertar.text = roomViewModel.palabraNumero(ale3.toString()).palabra_local
+        }else if(aleace==4){
+            binding.paraulaAEncertar.text = roomViewModel.palabraNumero(ale4.toString()).palabra_local
+        }
+        val paraula=roomViewModel.palabraNumero(ale1.toString())
+        binding.buttonOpcion1.text = paraula.palabra_aprender
         binding.buttonOpcion1.setOnClickListener {view: View ->
-con++
+            if(binding.buttonOpcion1.text == binding.paraulaAEncertar){con++}
             if(con>=10){con=0
-                     view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
+                view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
             }
         }
+        binding.buttonOpcion2.text = roomViewModel.palabraNumero(ale2.toString()).palabra_aprender
         binding.buttonOpcion2.setOnClickListener {view: View ->
-
+            if(binding.buttonOpcion1.text == binding.paraulaAEncertar){con++}
             if(con>=10){con=0
                 view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
             }
         }
+        binding.buttonOpcion3.text = roomViewModel.palabraNumero(ale3.toString()).palabra_aprender
         binding.buttonOpcion3.setOnClickListener {view: View ->
-
+            if(binding.buttonOpcion1.text == binding.paraulaAEncertar){con++}
             if(con>=10){con=0
                 view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
             }
         }
+        binding.buttonOpcion4.text = roomViewModel.palabraNumero(ale4.toString()).palabra_aprender
         binding.buttonOpcion4.setOnClickListener {view: View ->
-
+            if(binding.buttonOpcion1.text == binding.paraulaAEncertar){con++}
             if(con>=10){con=0
                 view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
             }
         }
+
 
         return binding.root
     }
