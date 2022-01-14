@@ -16,10 +16,12 @@ interface DatabaseDao {
     //suspend fun getuser(id:String): usuari
     @Query("SELECT password FROM usuari WHERE name=:name")
     fun getpasswd(name:String):String
+    @Query("SELECT * FROM usuari WHERE name=:name")
+    fun getiduser(name:String):usuari
 
     //usuaridades
     @Insert
-    suspend fun insertdades(info: usuaridades)
+    fun insertdades(info: usuaridades)
 
     @Query("SELECT * FROM dades WHERE id_usuari=:id and id_idioma=:idioma")
     fun getAlldades(id:String, idioma:String): usuaridades

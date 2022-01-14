@@ -23,6 +23,7 @@ class FinTestFragment : Fragment() {
         binding.textViewNom.setText(sharedApp.prefes.name.toString())
         val model = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
         binding.textViewIncorrectas.setText(model.getinc())
+        binding.button2.setText("Atras")
         binding.button2.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_finTestFragment_to_temaFragment)
         }

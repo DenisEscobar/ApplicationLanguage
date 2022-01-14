@@ -47,11 +47,9 @@ class TestFragment : Fragment() {
         val viewModelFactory = RoomViewModelFactory(dataSource, application)
         val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
 
-
-
         if(tema.equals("numero")) {
             val aleatori =roomViewModel.getallids()
-            paraula(binding, aleatori)
+            paraula(binding, aleatori, con)
 
             binding.buttonOpcion1.setOnClickListener { view: View ->
                 val palabraacertar =
@@ -68,7 +66,7 @@ class TestFragment : Fragment() {
                     model.sendinc(inc)
                     view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
                 }
-                paraula(binding, aleatori)
+                paraula(binding, aleatori, con)
             }
 
             binding.buttonOpcion2.setOnClickListener { view: View ->
@@ -86,7 +84,7 @@ class TestFragment : Fragment() {
                     model.sendinc(inc)
                     view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
                 }
-                paraula(binding, aleatori)
+                paraula(binding, aleatori, con)
             }
             binding.buttonOpcion3.setOnClickListener { view: View ->
                 val palabraacertar =
@@ -103,7 +101,7 @@ class TestFragment : Fragment() {
                     model.sendinc(inc)
                     view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
                 }
-                paraula(binding, aleatori)
+                paraula(binding, aleatori, con)
             }
             binding.buttonOpcion4.setOnClickListener { view: View ->
                 val palabraacertar =
@@ -120,11 +118,11 @@ class TestFragment : Fragment() {
                     model.sendinc(inc)
                     view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
                 }
-                paraula(binding, aleatori)
+                paraula(binding, aleatori, con)
             }
         }else if(tema.equals("alfabeto")) {
             val aleatoriletra = roomViewModel.getallidsletra()
-            letra(binding, aleatoriletra)
+            letra(binding, aleatoriletra, con)
 
             binding.buttonOpcion1.setOnClickListener { view: View ->
                 val palabraacertar =
@@ -141,7 +139,7 @@ class TestFragment : Fragment() {
                     model.sendinc(inc)
                     view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
                 }
-                letra(binding, aleatoriletra)
+                letra(binding, aleatoriletra, con)
             }
 
             binding.buttonOpcion2.setOnClickListener { view: View ->
@@ -159,7 +157,7 @@ class TestFragment : Fragment() {
                     model.sendinc(inc)
                     view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
                 }
-                letra(binding, aleatoriletra)
+                letra(binding, aleatoriletra, con)
             }
             binding.buttonOpcion3.setOnClickListener { view: View ->
                 val palabraacertar =
@@ -176,7 +174,7 @@ class TestFragment : Fragment() {
                     model.sendinc(inc)
                     view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
                 }
-                letra(binding, aleatoriletra)
+                letra(binding, aleatoriletra, con)
             }
             binding.buttonOpcion4.setOnClickListener { view: View ->
                 val palabraacertar =
@@ -193,7 +191,7 @@ class TestFragment : Fragment() {
                     model.sendinc(inc)
                     view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
                 }
-                letra(binding, aleatoriletra)
+                letra(binding, aleatoriletra, con)
             }
         }else if(tema.equals("frases")){
 
@@ -202,8 +200,8 @@ class TestFragment : Fragment() {
         }
         return binding.root
     }
-    fun paraula(binding: FragmentTestBinding, aleatori: String){
-
+    fun paraula(binding: FragmentTestBinding, aleatori: String, con: Int){
+        binding.textViewPuntuacionRestante.setText("Llevas "+con+" de 10")
         val application = requireNotNull(this.activity).application
         val dataSource = database.getInstance(application).databaseDao
         val viewModelFactory = RoomViewModelFactory(dataSource, application)
@@ -244,7 +242,8 @@ class TestFragment : Fragment() {
             binding.paraulaaencertar.setText(paraula4.localpalabra.toString())
         }
     }
-    fun letra(binding: FragmentTestBinding, aleatori: String){
+    fun letra(binding: FragmentTestBinding, aleatori: String, con: Int){
+        binding.textViewPuntuacionRestante.setText("Llevas "+con+" de 10")
 
         val application = requireNotNull(this.activity).application
         val dataSource = database.getInstance(application).databaseDao

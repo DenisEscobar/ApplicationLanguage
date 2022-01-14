@@ -2,6 +2,7 @@ package com.example.applicationlanguage
 
 import android.app.Application
 import androidx.lifecycle.*
+import androidx.room.ColumnInfo
 import com.example.applicationlanguage.database.*
 import kotlinx.coroutines.launch
 
@@ -224,4 +225,33 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
         return database.getletra(palabra)
     }
 
+
+
+
+
+
+
+
+
+
+
+
+    fun creardades(nameid:String){
+        val newuser = usuaridades()
+        newuser.userid= nameid.toLong()
+        newuser.idiomaid="1"
+        newuser.completado=false
+        database.insertdades(newuser)
+        newuser.userid= nameid.toLong()
+        newuser.idiomaid="2"
+        newuser.completado=false
+        database.insertdades(newuser)
+        newuser.userid= nameid.toLong()
+        newuser.idiomaid="3"
+        newuser.completado=false
+        database.insertdades(newuser)
+    }
+    fun getuserid(name: String): String{
+        return database.getiduser(name).userid.toString()
+    }
 }

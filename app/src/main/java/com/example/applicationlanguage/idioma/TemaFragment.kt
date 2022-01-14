@@ -35,6 +35,7 @@ class TemaFragment : Fragment() {
         val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
         var idiomanum = roomViewModel.database.getidiomaid(modelShare.getidioma(),"numero")
         var compnum = roomViewModel.database.getAlldades("1",idiomanum)
+
         //if(compnum.completado==true){
         //    binding.buttonNumeros.setTextColor(Color.parseColor("#63FF33"))
         //}
@@ -55,20 +56,17 @@ class TemaFragment : Fragment() {
         binding.buttonAlfabeto.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_temaFragment_to_paraulasOTestFragment)
             var tema="alfabeto"
-            //modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
             modelShare.sendtema(tema.toString())
             modelShare.sendconocimiento(tema.toString())
         }
         binding.buttonFrases.setOnClickListener { view:View ->
             view.findNavController().navigate(R.id.action_temaFragment_to_conocimientoFragment)
             var tema="frases"
-           // modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
             modelShare.sendtema(tema.toString())
         }
         binding.buttonParaulas.setOnClickListener { view:View ->
             view.findNavController().navigate(R.id.action_temaFragment_to_conocimientoFragment)
             var tema="vocabulario"
-           // modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
             modelShare.sendtema(tema.toString())
         }
 

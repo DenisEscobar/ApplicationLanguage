@@ -36,6 +36,7 @@ class RegistreFragment : Fragment() {
                 binding.editTextTextName.setText("")
                 binding.editTextPassword.setText("")
                 binding.editTextTextEmail.setText("")
+                roomViewModel.creardades(roomViewModel.getuserid(sharedApp.prefes.name!!))
             }else {
                 if (binding.editTextTextEmail.text.toString().isEmpty()) {
                     binding.TextViewerror.setText("el email no pot ser vuit")
