@@ -225,16 +225,7 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
         return database.getletra(palabra)
     }
 
-
-
-
-
-
-
-
-
-
-
+//falsta mas....
 
     fun creardades(nameid:String){
         val newuser = usuaridades()
