@@ -285,4 +285,65 @@ class TestFragment : Fragment() {
             binding.paraulaaencertar.setText(paraula4.localpalabra.toString())
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    fun frases(binding: FragmentTestBinding, aleatori: String, con: Int){
+        binding.textViewPuntuacionRestante.setText("Llevas "+con+" de 10")
+
+        val application = requireNotNull(this.activity).application
+        val dataSource = database.getInstance(application).databaseDao
+        val viewModelFactory = RoomViewModelFactory(dataSource, application)
+        val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
+
+        var ale2=0
+        var ale3=0
+        var ale4=0
+        var ale1=0
+        ale1 = (1..aleatori.toInt()).random()
+        do {
+            ale2 = (1..aleatori.toInt()).random()
+        }while(ale2==ale1)
+        do {
+            ale3 = (1..aleatori.toInt()).random()
+        }while(ale3==ale1 || ale3==ale2)
+        do{
+            ale4 = (1..aleatori.toInt()).random()
+        }while(ale4==ale1 || ale4==ale2 || ale4==ale3)
+
+        val paraula=roomViewModel.palabraFra(ale1.toString())
+        binding.buttonOpcion1.text = paraula.aprenderpalabra
+        val palabla2 = roomViewModel.palabraFra(ale2.toString())
+        binding.buttonOpcion2.text = palabla2.aprenderpalabra
+        val paraula3=roomViewModel.palabraFra(ale3.toString())
+        binding.buttonOpcion3.text = paraula3.aprenderpalabra
+        val paraula4=roomViewModel.palabraFra(ale4.toString())
+        binding.buttonOpcion4.text = paraula4.aprenderpalabra
+
+        val aleace = (1..4).random()
+        if(aleace==1) {
+            binding.paraulaaencertar.setText(paraula.localpalabra.toString())
+        }else if(aleace==2){
+            binding.paraulaaencertar.setText(palabla2.localpalabra.toString())
+        }else if(aleace==3){
+            binding.paraulaaencertar.setText(paraula3.localpalabra.toString())
+        }else if(aleace==4){
+            binding.paraulaaencertar.setText(paraula4.localpalabra.toString())
+        }
+    }
 }

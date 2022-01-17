@@ -26,7 +26,7 @@ abstract class database: RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         database::class.java,
-                        "lenguage_database"
+                        "lenguage_database_2"
                     )
                         .addCallback(object : Callback() {
                             override fun onCreate(db: SupportSQLiteDatabase) {
@@ -62,9 +62,35 @@ abstract class database: RoomDatabase() {
                 db.databaseDao.insertidioma(idioma)
                 idioma.idiomaid="3"
                 idioma.idioma="ingles"
-                idioma.conocimiento="palabra"
-                idioma.tema="sentimiento"
+                idioma.conocimiento="sentimiento"
+                idioma.tema="palabra"
                 db.databaseDao.insertidioma(idioma)
+                palabra.idiomaid="3"
+                palabra.aprenderpalabra="affection"
+                palabra.localpalabra="afecto"
+                db.databaseDao.insertpalabra(palabra)
+
+                palabra.idiomaid="3"
+                palabra.aprenderpalabra="anger"
+                palabra.localpalabra="ira"
+                db.databaseDao.insertpalabra(palabra)
+                palabra.idiomaid="3"
+                palabra.aprenderpalabra="boredom"
+                palabra.localpalabra="aburrimiento"
+                db.databaseDao.insertpalabra(palabra)
+                palabra.idiomaid="3"
+                palabra.aprenderpalabra="confidence"
+                palabra.localpalabra="confianza"
+                db.databaseDao.insertpalabra(palabra)
+                palabra.idiomaid="3"
+                palabra.aprenderpalabra="creativity"
+                palabra.localpalabra="creatividad"
+                db.databaseDao.insertpalabra(palabra)
+                palabra.idiomaid="3"
+                palabra.aprenderpalabra="curiosity"
+                palabra.localpalabra="curiosidad"
+                db.databaseDao.insertpalabra(palabra)
+
                 num.idiomaid="1"
                 num.aprenderpalabra="one"
                 num.localpalabra="uno"

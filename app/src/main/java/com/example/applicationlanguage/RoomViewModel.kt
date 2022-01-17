@@ -19,6 +19,7 @@ class RoomViewModel(
     private var topalabra = MutableLiveData<palabras?>()
 private var infocorrecte=MutableLiveData<String>()
 private var palabra=MutableLiveData<palabra_numero>()
+    private var letra=MutableLiveData<palabra_alfabeto>()
     fun getnumero(id: String): List<palabraAprenderNumero> {
         val num=database.getAllpalabras_numero_id(id)
         return num
@@ -26,6 +27,10 @@ private var palabra=MutableLiveData<palabra_numero>()
     fun getAlfabeto(id:String):List<palabraAprenderAlfabeto>{
         val alf=database.getAllpalabras_alfabeto_id(id)
         return alf
+    }
+    fun getFrase(id:String):List<palabras>{
+        val fra = database.getAllPalabras_id(id)
+        return fra
     }
     fun setinfo(text: String) {
         infocorrecte.value = text
@@ -35,6 +40,9 @@ private var palabra=MutableLiveData<palabra_numero>()
     }
     fun setpal(text: palabra_numero){
         palabra.value=text
+    }
+    fun setpalal(text: palabra_alfabeto){
+        letra.value=text
     }
     fun getpal(): palabra_numero? {return palabra.value}
 //    private fun initializeToUser(id:String) {
@@ -77,7 +85,7 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
     return palabra
 }
 */
-    fun firstall(){
+/*    fun firstall(){
         viewModelScope.launch {
             val idioma=idioma()
             val paal=palabra_alfabeto()
@@ -92,7 +100,7 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
             paal.pronunciacio_aprender="b"
             paal.pronunciacio_local="b"
             insertalfabeto(paal)
-/*
+
             idioma.idiomaid="1"
             idioma.idioma="ingles"
             idioma.conocimiento="alfabeto"
@@ -137,7 +145,7 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
             usuda.userid=1
             usuda.idiomaid="2"
             usuda.completado=false
-            insertuserdadas(usuda)*/
+            insertuserdadas(usuda)
         }
     }
     private suspend fun insertuserdadas(dada: usuaridades) {
@@ -152,7 +160,7 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
     private suspend fun insertalfabeto(p_al: palabra_alfabeto) {
         database.insert_alfabeto(p_al)
     }
-
+    */
 
     fun onRegisterUser(u:String, p:String, e:String) {
         viewModelScope.launch {
@@ -186,15 +194,23 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
         viewModelScope.launch {
             var idIdioma=mirarid(Idioma,conocimiento)
             if(conocimiento=="numero") {
-                var id = palabraIdNumero(idIdioma)
-                var i=0
-                while(i<id.size){
-                    var num = palabraNumero(id[i].toString())
-                    setpal(num)
-                    i++
-                }
+//                var id = palabraIdNumero(idIdioma)
+//                var i=0
+//                while(i<id.size){
+//                    var num = palabraNumero(id[i].toString())
+//                    setpal(num)
+//                    i++
+//                }
 
-            }else if(conocimiento=="alfabeto"){}
+            }else if(conocimiento=="alfabeto"){
+//                var id = getallidsalfabeto(idIdioma)
+//                var i=0
+//                while(i<id.size){
+//                    var alf = palabraletra(id[i].toString())
+//                    setpalal(alf)
+//                    i++
+//                }
+            }
 
         }
     }
@@ -214,7 +230,9 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
     fun getpalabra(palabra:String): palabra_numero{
         return database.getpalabra(palabra)
     }
-
+    fun getallidsalfabeto(idIdioma: String): List<palabraAprenderAlfabeto>{
+        return database.getAllpalabras_alfabeto_id(idIdioma)
+    }
     fun palabraletra(idNumero:String): palabra_alfabeto {
         return database.getPalabras_letras(idNumero)
     }
@@ -224,7 +242,9 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
     fun getletra(palabra:String): palabra_alfabeto{
         return database.getletra(palabra)
     }
-
+    fun palabraFra(idFrase:String): palabras {
+        return database.getPalabras(idFrase)
+    }
 //falsta mas....
 
     fun creardades(nameid:String){

@@ -39,8 +39,7 @@ interface DatabaseDao {
     @Query("SELECT id FROM palabras WHERE idioma_id=:id ORDER BY id ASC")
     suspend fun getAllIdPalabras(id: String): List<Long>
 
-    @Query("SELECT palabra_aprender AS palabraApre,palabra_local AS palabraLocal FROM palabras WHERE id=:id")
-    suspend fun getPalabras(id: String): List<palabraAprender>
+
 
     //palabra_alfabeto
     @Insert
@@ -49,7 +48,7 @@ interface DatabaseDao {
     suspend fun getAllIdPalabras_alfabeto(idi: String): List<Long>
     @Query("SELECT palabra_aprender,palabra_local,pronunciacio_local,pronunciacio_aprender FROM palabra_alfabeto WHERE id=:id")
     suspend fun getPalabras_alfabeto(id: String): palabraAprenderAlfabeto
-    @Query("SELECT palabra_aprender,palabra_local,pronunciacio_local,pronunciacio_aprender FROM palabra_alfabeto WHERE idioma_id=:id ORDER BY id")
+    @Query("SELECT id,palabra_aprender,palabra_local,pronunciacio_local,pronunciacio_aprender FROM palabra_alfabeto WHERE idioma_id=:id ORDER BY id")
     fun getAllpalabras_alfabeto_id(id: String):List<palabraAprenderAlfabeto>
 
     //palabra_numero
@@ -74,4 +73,8 @@ interface DatabaseDao {
     @Query("Select * FROM palabra_alfabeto WHERE palabra_local=:local")
     fun getletra(local:String):palabra_alfabeto
 
+    @Query("Select * FROM palabras WHERE idioma_id=:id ORDER BY id ASC")
+    fun getAllPalabras_id(id: String):List<palabras>
+    @Query("SELECT * FROM palabras WHERE id=:id")
+    fun getPalabras(id: String): palabras
 }

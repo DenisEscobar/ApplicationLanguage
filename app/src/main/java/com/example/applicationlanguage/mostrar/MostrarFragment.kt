@@ -54,6 +54,12 @@ modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java
                 modelShare
             )
             
+        }else if(tema=="frases"){
+            recyclerView.adapter = MostrarFragmentAdapterFra(
+                application,
+                roomViewModel.getFrase(id)
+            )
+
         }
 
 
