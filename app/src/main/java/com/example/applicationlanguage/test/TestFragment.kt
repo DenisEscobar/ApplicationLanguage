@@ -193,7 +193,7 @@ class TestFragment : Fragment() {
                 }
                 letra(binding, aleatoriletra, con)
             }
-        }else if(tema.equals("frases")){
+        }else if(tema.equals("vocabulario")){
             val aleatorifra =roomViewModel.getallids_fra()
             frases(binding, aleatorifra, con)
 
@@ -267,7 +267,7 @@ class TestFragment : Fragment() {
                 frases(binding, aleatorifra, con)
             }
 
-        }else if(tema.equals("vocabulario")){
+        }else if(tema.equals("frases")){
 
         }
         return binding.root

@@ -26,7 +26,7 @@ abstract class database: RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         database::class.java,
-                        "lenguage_database_2"
+                        "lenguage_database"
                     )
                         .addCallback(object : Callback() {
                             override fun onCreate(db: SupportSQLiteDatabase) {
