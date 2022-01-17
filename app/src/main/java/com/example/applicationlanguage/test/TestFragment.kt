@@ -194,12 +194,87 @@ class TestFragment : Fragment() {
                 letra(binding, aleatoriletra, con)
             }
         }else if(tema.equals("frases")){
+            val aleatorifra =roomViewModel.getallids_fra()
+            frases(binding, aleatorifra, con)
+
+            binding.buttonOpcion1.setOnClickListener { view: View ->
+                val palabraacertar =
+                    roomViewModel.getpalabrafra(binding.paraulaaencertar.text.toString())
+                if (binding.buttonOpcion1.text.toString()
+                        .equals(palabraacertar.aprenderpalabra.toString())
+                ) {
+                    con++
+                } else {
+                    inc++
+                }
+                if (con >= 10) {
+                    con = 0
+                    model.sendinc(inc)
+                    view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
+                }
+                frases(binding, aleatorifra, con)
+            }
+
+            binding.buttonOpcion2.setOnClickListener { view: View ->
+                val palabraacertar =
+                    roomViewModel.getpalabrafra(binding.paraulaaencertar.text.toString())
+                if (binding.buttonOpcion2.text.toString()
+                        .equals(palabraacertar.aprenderpalabra.toString())
+                ) {
+                    con++
+                } else {
+                    inc++
+                }
+                if (con >= 10) {
+                    con = 0
+                    model.sendinc(inc)
+                    view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
+                }
+                frases(binding, aleatorifra, con)
+            }
+            binding.buttonOpcion3.setOnClickListener { view: View ->
+                val palabraacertar =
+                    roomViewModel.getpalabrafra(binding.paraulaaencertar.text.toString())
+                if (binding.buttonOpcion3.text.toString()
+                        .equals(palabraacertar.aprenderpalabra.toString())
+                ) {
+                    con++
+                } else {
+                    inc++
+                }
+                if (con >= 10) {
+                    con = 0
+                    model.sendinc(inc)
+                    view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
+                }
+                frases(binding, aleatorifra, con)
+            }
+            binding.buttonOpcion4.setOnClickListener { view: View ->
+                val palabraacertar =
+                    roomViewModel.getpalabrafra(binding.paraulaaencertar.text.toString())
+                if (binding.buttonOpcion4.text.toString()
+                        .equals(palabraacertar.aprenderpalabra.toString())
+                ) {
+                    con++
+                } else {
+                    inc++
+                }
+                if (con >= 10) {
+                    con = 0
+                    model.sendinc(inc)
+                    view.findNavController().navigate(R.id.action_testFragment_to_finTestFragment)
+                }
+                frases(binding, aleatorifra, con)
+            }
 
         }else if(tema.equals("vocabulario")){
 
         }
         return binding.root
     }
+
+    //funciones
+    //numero
     fun paraula(binding: FragmentTestBinding, aleatori: String, con: Int){
         binding.textViewPuntuacionRestante.setText("Llevas "+con+" de 10")
         val application = requireNotNull(this.activity).application
@@ -242,6 +317,7 @@ class TestFragment : Fragment() {
             binding.paraulaaencertar.setText(paraula4.localpalabra.toString())
         }
     }
+    //alfabeto
     fun letra(binding: FragmentTestBinding, aleatori: String, con: Int){
         binding.textViewPuntuacionRestante.setText("Llevas "+con+" de 10")
 
@@ -285,24 +361,7 @@ class TestFragment : Fragment() {
             binding.paraulaaencertar.setText(paraula4.localpalabra.toString())
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //frases
     fun frases(binding: FragmentTestBinding, aleatori: String, con: Int){
         binding.textViewPuntuacionRestante.setText("Llevas "+con+" de 10")
 

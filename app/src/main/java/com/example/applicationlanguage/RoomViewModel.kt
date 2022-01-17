@@ -242,8 +242,14 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
     fun getletra(palabra:String): palabra_alfabeto{
         return database.getletra(palabra)
     }
+    fun getallids_fra(): String{
+        return database.getAll_Frase_id()
+    }
     fun palabraFra(idFrase:String): palabras {
         return database.getPalabras(idFrase)
+    }
+    fun getpalabrafra(palabra:String): palabras{
+        return database.getpalabrasfra(palabra)
     }
 //falsta mas....
 

@@ -77,4 +77,8 @@ interface DatabaseDao {
     fun getAllPalabras_id(id: String):List<palabras>
     @Query("SELECT * FROM palabras WHERE id=:id")
     fun getPalabras(id: String): palabras
+    @Query("Select max(id) FROM palabras")
+    fun getAll_Frase_id():String
+    @Query("Select * FROM palabras WHERE palabra_local=:local")
+    fun getpalabrasfra(local:String):palabras
 }
