@@ -289,4 +289,11 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
     fun getuserid(name: String): String{
         return database.getiduser(name).userid.toString()
     }
+
+    fun getconocimiento(name: String): List<idioma>{
+        return database.getConocimiento(name)
+    }
+    fun completar(idioma:String, usuari:String){
+        database.competar(idioma,usuari)
+    }
 }

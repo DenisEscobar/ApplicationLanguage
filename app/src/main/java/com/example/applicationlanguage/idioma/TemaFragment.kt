@@ -16,6 +16,7 @@ import com.example.applicationlanguage.RoomViewModelFactory
 import com.example.applicationlanguage.ShareViewModel
 import com.example.applicationlanguage.database.database
 import com.example.applicationlanguage.databinding.FragmentTemaBinding
+import com.example.applicationlanguage.sharedpref.sharedApp
 import java.lang.Integer.parseInt
 
 class TemaFragment : Fragment() {
@@ -34,8 +35,10 @@ class TemaFragment : Fragment() {
         val viewModelFactory = RoomViewModelFactory(dataSource, application)
         val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
         var idiomanum = roomViewModel.database.getidiomaid(modelShare.getidioma(),"numero")
-        var compnum = roomViewModel.database.getAlldades("1",idiomanum)
-
+        var user = sharedApp.prefes.name
+        if(user.isNullOrEmpty()) {
+            var compnum = roomViewModel.database.getAlldades(roomViewModel.getuserid(user.toString()), idiomanum)
+        }
         //if(compnum.completado==true){
         //    binding.buttonNumeros.setTextColor(Color.parseColor("#63FF33"))
         //}

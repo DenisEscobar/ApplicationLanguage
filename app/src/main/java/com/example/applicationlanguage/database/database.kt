@@ -64,7 +64,7 @@ abstract class database: RoomDatabase() {
                 idioma.idiomaid="3"
                 idioma.idioma="ingles"
                 idioma.conocimiento="sentimiento"
-                idioma.tema="palabra"
+                idioma.tema="vocabulario"
                 db.databaseDao.insertidioma(idioma)
                 idioma.idiomaid="4"
                 idioma.idioma="ingles"

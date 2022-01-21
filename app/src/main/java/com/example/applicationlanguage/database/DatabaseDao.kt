@@ -89,4 +89,13 @@ interface DatabaseDao {
     fun getAll_Frase_id():String
     @Query("Select * FROM frases WHERE frase_local=:local")
     fun getFrasesfra(local:String):palabra_frase
+
+
+    //cojer conocimientos
+    @Query("Select * FROM idioma WHERE tema=:local")
+    fun getConocimiento(local:String):List<idioma>
+
+    //completado
+    @Query("Update dades set completado=1 WHERE id_idioma=:idioma and id_usuari=:usuari")
+    fun competar(idioma:String, usuari:String)
 }
