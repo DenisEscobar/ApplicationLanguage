@@ -34,19 +34,20 @@ class TemaFragment : Fragment() {
         val dataSource = database.getInstance(application).databaseDao
         val viewModelFactory = RoomViewModelFactory(dataSource, application)
         val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
-        var idiomanum = roomViewModel.database.getidiomaid(modelShare.getidioma(),"numero")
         var user = sharedApp.prefes.name
         if(!user.isNullOrEmpty()) {
+            var idiomanum = roomViewModel.database.getidiomaid(modelShare.getidioma(),"numero")
             var compnum = roomViewModel.database.getAlldades(roomViewModel.getuserid(user.toString()), idiomanum)
+            if(compnum.completado==true){
+                binding.buttonNumeros.setTextColor(Color.parseColor("#63FF33"))
+            }
+            var idiomaalfa = roomViewModel.database.getidiomaid(modelShare.getidioma(),"alfabeto")
+            var compalfa = roomViewModel.database.getAlldades(roomViewModel.getuserid(user.toString()),idiomaalfa)
+            if(compalfa.completado==true){
+                binding.buttonAlfabeto.setTextColor(Color.parseColor("#63FF33"))
+            }
         }
-        //if(compnum.completado==true){
-        //    binding.buttonNumeros.setTextColor(Color.parseColor("#63FF33"))
-        //}
-        //var idiomaalfa = roomViewModel.database.getidiomaid(modelShare.getidioma(),"alfabeto")
-        //var compalfa = roomViewModel.database.getAlldades("1",idiomaalfa)
-        //if(compalfa.completado==true){
-        //    binding.buttonAlfabeto.setTextColor(Color.parseColor("#63FF33"))
-        //}
+
 
 
         binding.buttonNumeros.setOnClickListener { view : View ->
