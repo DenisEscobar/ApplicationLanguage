@@ -255,7 +255,7 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
     fun palabraFra(idFrase:String): palabras {
         return database.getPalabras(idFrase)
     }
-    fun getpalabrafra(palabra:String): palabras{
+    fun getpalabrapal(palabra:String): palabras{
         return database.getpalabrasfra(palabra)
     }
 //falsta mas....

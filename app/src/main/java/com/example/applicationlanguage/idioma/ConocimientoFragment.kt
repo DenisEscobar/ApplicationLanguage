@@ -23,15 +23,16 @@ class ConocimientoFragment : Fragment() {
             R.layout.fragment_conocimiento, container, false
         )
         val modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
-        if (modelShare.tema.toString() == "vocabulario") {
+        if (modelShare.gettema().toString() == "vocabulario") {
+            binding.buttonSentimiento.text="Sentimiento"
             binding.buttonSentimiento.setOnClickListener { view: View ->
                 view.findNavController()
                     .navigate(R.id.action_conocimientoFragment_to_paraulasOTestFragment)
                 var conocimiento = "sentimiento"
                 modelShare.sendconocimiento(conocimiento.toString())
             }
-        }else if(modelShare.tema.toString() == "frases"){
-            binding.buttonSentimiento.setText("personas")
+        }else if(modelShare.gettema().toString() == "frases"){
+            binding.buttonSentimiento.text="personas"
             binding.buttonSentimiento.setOnClickListener { view: View ->
                 view.findNavController()
                     .navigate(R.id.action_conocimientoFragment_to_paraulasOTestFragment)
