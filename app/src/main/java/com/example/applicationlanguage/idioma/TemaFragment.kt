@@ -36,7 +36,7 @@ class TemaFragment : Fragment() {
         val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
         var idiomanum = roomViewModel.database.getidiomaid(modelShare.getidioma(),"numero")
         var user = sharedApp.prefes.name
-        if(user.isNullOrEmpty()) {
+        if(!user.isNullOrEmpty()) {
             var compnum = roomViewModel.database.getAlldades(roomViewModel.getuserid(user.toString()), idiomanum)
         }
         //if(compnum.completado==true){
