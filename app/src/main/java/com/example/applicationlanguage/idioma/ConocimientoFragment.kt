@@ -18,15 +18,28 @@ class ConocimientoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = DataBindingUtil.inflate<FragmentConocimientoBinding>(inflater,
-            R.layout.fragment_conocimiento,container,false)
-
-        binding.buttonSentimiento.setOnClickListener { view:View ->
-            view.findNavController().navigate(R.id.action_conocimientoFragment_to_paraulasOTestFragment)
-            var conocimiento="sentimiento"
-            modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
-            modelShare.sendconocimiento(conocimiento.toString())
+        val binding = DataBindingUtil.inflate<FragmentConocimientoBinding>(
+            inflater,
+            R.layout.fragment_conocimiento, container, false
+        )
+        val modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
+        if (modelShare.tema.toString() == "vocabulario") {
+            binding.buttonSentimiento.setOnClickListener { view: View ->
+                view.findNavController()
+                    .navigate(R.id.action_conocimientoFragment_to_paraulasOTestFragment)
+                var conocimiento = "sentimiento"
+                modelShare.sendconocimiento(conocimiento.toString())
+            }
+        }else if(modelShare.tema.toString() == "frases"){
+            binding.buttonSentimiento.setText("personas")
+            binding.buttonSentimiento.setOnClickListener { view: View ->
+                view.findNavController()
+                    .navigate(R.id.action_conocimientoFragment_to_paraulasOTestFragment)
+                var conocimiento = "personas"
+                modelShare.sendconocimiento(conocimiento.toString())
+            }
         }
+
         return binding.root
     }
 }
