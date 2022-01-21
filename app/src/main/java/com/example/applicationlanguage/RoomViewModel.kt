@@ -17,9 +17,16 @@ class RoomViewModel(
     private var tonumero = MutableLiveData<palabra_numero?>()
     private var toalfabeto = MutableLiveData<palabra_alfabeto?>()
     private var topalabra = MutableLiveData<palabras?>()
-private var infocorrecte=MutableLiveData<String>()
-private var palabra=MutableLiveData<palabra_numero>()
+
+    private var infocorrecte=MutableLiveData<String>()
+    private var palabra=MutableLiveData<palabra_numero>()
     private var letra=MutableLiveData<palabra_alfabeto>()
+    private var frase=MutableLiveData<palabra_frase>()
+
+    fun getfrase(id: String): List<palabra_frase> {
+        val frase=database.getAllFrases_id(id)
+        return frase
+    }
     fun getnumero(id: String): List<palabraAprenderNumero> {
         val num=database.getAllpalabras_numero_id(id)
         return num
@@ -28,7 +35,7 @@ private var palabra=MutableLiveData<palabra_numero>()
         val alf=database.getAllpalabras_alfabeto_id(id)
         return alf
     }
-    fun getFrase(id:String):List<palabras>{
+    fun getPalabra(id:String):List<palabras>{
         val fra = database.getAllPalabras_id(id)
         return fra
     }
@@ -243,7 +250,7 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
         return database.getletra(palabra)
     }
     fun getallids_fra(): String{
-        return database.getAll_Frase_id()
+        return database.getAll_Palabras_id()
     }
     fun palabraFra(idFrase:String): palabras {
         return database.getPalabras(idFrase)
@@ -252,6 +259,17 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
         return database.getpalabrasfra(palabra)
     }
 //falsta mas....
+    fun getallids_frases(): String{
+        return database.getAll_Frase_id()
+    }
+    fun palabraFrases(idFrase:String): palabra_frase {
+        return database.getFrases(idFrase)
+    }
+    fun getpalabrafrases(palabra:String): palabra_frase{
+        return database.getFrasesfra(palabra)
+    }
+
+
 
     fun creardades(nameid:String){
         val newuser = usuaridades()

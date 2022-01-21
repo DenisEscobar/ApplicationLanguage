@@ -7,11 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.applicationlanguage.R
-import com.example.applicationlanguage.database.palabra_frase
 import com.example.applicationlanguage.database.palabras
 
-class MostrarFragmentAdapterFra(private val context: Context,
-                                private val list: List<palabra_frase>) : RecyclerView.Adapter<MostrarFragmentAdapterFra.ViewHolder>()  {
+class MostrarFragmentAdapterPal(private val context: Context,
+                                private val list: List<palabras>) : RecyclerView.Adapter<MostrarFragmentAdapterFra.ViewHolder>()  {
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val primertv: TextView = view.findViewById(R.id.textViewPronunciacioF)
         val segontv: TextView = view.findViewById(R.id.textViewPronunciacioAprenderF)
@@ -27,7 +26,7 @@ class MostrarFragmentAdapterFra(private val context: Context,
 
     override fun onBindViewHolder(holder: MostrarFragmentAdapterFra.ViewHolder, position: Int) {
         val data = list[position]
-        holder.primertv.text = data.localfrase
-        holder.segontv.text = data.aprenderfrase
+        holder.primertv.text = data.localpalabra
+        holder.segontv.text = data.aprenderpalabra
     }
 }

@@ -8,7 +8,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-@Database(entities = [usuari::class, usuaridades::class,palabras::class,palabra_alfabeto::class,palabra_numero::class,idioma::class], version=4, exportSchema=false)
+@Database(entities = [usuari::class,usuaridades::class,palabras::class,palabra_alfabeto::class,palabra_numero::class,idioma::class,palabra_frase::class], version=1, exportSchema=false)
 abstract class database: RoomDatabase() {
 
     abstract  val databaseDao:DatabaseDao
@@ -49,7 +49,8 @@ abstract class database: RoomDatabase() {
                 val idioma = idioma()
                 val alf = palabra_alfabeto()
                 val palabra = palabras()
-
+                val frase = palabra_frase()
+            //temas
                 idioma.idiomaid="1"
                 idioma.idioma="ingles"
                 idioma.conocimiento="numero"
@@ -65,11 +66,53 @@ abstract class database: RoomDatabase() {
                 idioma.conocimiento="sentimiento"
                 idioma.tema="palabra"
                 db.databaseDao.insertidioma(idioma)
+                idioma.idiomaid="4"
+                idioma.idioma="ingles"
+                idioma.conocimiento="personas"
+                idioma.tema="frases"
+                db.databaseDao.insertidioma(idioma)
+
+            //frases
+                frase.idiomaid="4"
+                frase.aprenderfrase="I and you"
+                frase.localfrase="yo y tú"
+                db.databaseDao.insert_frases(frase)
+                frase.idiomaid="4"
+                frase.aprenderfrase="he and she"
+                frase.localfrase="el y ella"
+                db.databaseDao.insert_frases(frase)
+                frase.idiomaid="4"
+                frase.aprenderfrase="my family is here"
+                frase.localfrase="mi familia esta aqui"
+                db.databaseDao.insert_frases(frase)
+                frase.idiomaid="4"
+                frase.aprenderfrase="you are here"
+                frase.localfrase="vosotraos estais aqui"
+                db.databaseDao.insert_frases(frase)
+                frase.idiomaid="4"
+                frase.aprenderfrase="the man"
+                frase.localfrase="el hombre"
+                db.databaseDao.insert_frases(frase)
+                frase.idiomaid="4"
+                frase.aprenderfrase="the woman"
+                frase.localfrase="la mujer"
+                db.databaseDao.insert_frases(frase)
+                frase.idiomaid="4"
+                frase.aprenderfrase="the child"
+                frase.localfrase="el niño"
+                db.databaseDao.insert_frases(frase)
+                frase.idiomaid="4"
+                frase.aprenderfrase="a family"
+                frase.localfrase="una familia"
+                db.databaseDao.insert_frases(frase)
+                frase.idiomaid="4"
+                frase.aprenderfrase="my family"
+                frase.localfrase="mi familia"
+                db.databaseDao.insert_frases(frase)
+            //palabras
                 palabra.idiomaid="3"
                 palabra.aprenderpalabra="affection"
                 palabra.localpalabra="afecto"
-                db.databaseDao.insertpalabra(palabra)
-
                 palabra.idiomaid="3"
                 palabra.aprenderpalabra="anger"
                 palabra.localpalabra="ira"
@@ -90,7 +133,7 @@ abstract class database: RoomDatabase() {
                 palabra.aprenderpalabra="curiosity"
                 palabra.localpalabra="curiosidad"
                 db.databaseDao.insertpalabra(palabra)
-
+            //numero
                 num.idiomaid="1"
                 num.aprenderpalabra="one"
                 num.localpalabra="uno"
@@ -141,7 +184,7 @@ abstract class database: RoomDatabase() {
                 num.localpalabra="diez"
                 num.numero=10
                 db.databaseDao.insert_numero(num)
-
+            //alfabeto
                 alf.idiomaid="2"
                 alf.aprenderpalabra="a"
                 alf.localpalabra="a"

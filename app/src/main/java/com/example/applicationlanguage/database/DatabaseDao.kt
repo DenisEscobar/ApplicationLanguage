@@ -10,10 +10,6 @@ interface DatabaseDao {
     //usuari
     @Insert
     suspend fun insertuser(usuari: usuari)
-//    @Query("SELECT * FROM usuari ORDER BY userid DESC")
-//    suspend fun getAlluser(): LiveData<List<usuari>>
-    //@Query("SELECT name,password FROM usuari WHERE userid=':id'")
-    //suspend fun getuser(id:String): usuari
     @Query("SELECT password FROM usuari WHERE name=:name")
     fun getpasswd(name:String):String
     @Query("SELECT * FROM usuari WHERE name=:name")
@@ -35,11 +31,10 @@ interface DatabaseDao {
     //palabras
     @Insert
     suspend fun insertpalabra(palabras: palabras)
-//por conocimintos
+
+    //por conocimintos
     @Query("SELECT id FROM palabras WHERE idioma_id=:id ORDER BY id ASC")
     suspend fun getAllIdPalabras(id: String): List<Long>
-
-
 
     //palabra_alfabeto
     @Insert
@@ -62,10 +57,10 @@ interface DatabaseDao {
     fun getAllpalabras_numero_id(id: String):List<palabraAprenderNumero>
     @Query("Select max(id) FROM palabra_numero")
     fun getAll_numero_id():String
-
     @Query("Select * FROM palabra_numero WHERE palabra_local=:local")
     fun getpalabra(local:String):palabra_numero
 
+    //palabra_alfabeto
     @Query("SELECT * FROM palabra_alfabeto WHERE id=:id")
     fun getPalabras_letras(id: String): palabra_alfabeto
     @Query("Select max(id) FROM palabra_alfabeto")
@@ -73,12 +68,25 @@ interface DatabaseDao {
     @Query("Select * FROM palabra_alfabeto WHERE palabra_local=:local")
     fun getletra(local:String):palabra_alfabeto
 
-    @Query("Select * FROM palabras WHERE idioma_id=:id ORDER BY id ASC")
+    //palabras
+    @Query("Select * FROM palabras WHERE idioma_id=:id")
     fun getAllPalabras_id(id: String):List<palabras>
     @Query("SELECT * FROM palabras WHERE id=:id")
     fun getPalabras(id: String): palabras
     @Query("Select max(id) FROM palabras")
-    fun getAll_Frase_id():String
+    fun getAll_Palabras_id():String
     @Query("Select * FROM palabras WHERE palabra_local=:local")
     fun getpalabrasfra(local:String):palabras
+
+    //palabras_frases
+    @Insert
+    suspend fun insert_frases(frases: palabra_frase)
+    @Query("Select * FROM frases WHERE idioma_id=:id")
+    fun getAllFrases_id(id: String):List<palabra_frase>
+    @Query("SELECT * FROM frases WHERE id=:id")
+    fun getFrases(id: String): palabra_frase
+    @Query("Select max(id) FROM frases")
+    fun getAll_Frase_id():String
+    @Query("Select * FROM frases WHERE frase_local=:local")
+    fun getFrasesfra(local:String):palabra_frase
 }
