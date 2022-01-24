@@ -35,8 +35,10 @@ class TemaFragment : Fragment() {
         val viewModelFactory = RoomViewModelFactory(dataSource, application)
         val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
         var user = sharedApp.prefes.name
+        //falta poner dentro!!!
+        var idiomanum = roomViewModel.database.getidiomaid(modelShare.getidioma(),"numero")
         if(!user.isNullOrBlank()) {
-            var idiomanum = roomViewModel.database.getidiomaid(modelShare.getidioma(),"numero")
+
             var compnum = roomViewModel.database.getAlldades(roomViewModel.getuserid(user.toString()), idiomanum)
             if(compnum.completado==true){
                 binding.buttonNumeros.setBackgroundColor(Color.parseColor("#63AA33"))
