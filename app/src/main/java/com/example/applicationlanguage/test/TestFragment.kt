@@ -451,19 +451,19 @@ class TestFragment : Fragment() {
         var ale3=0
         var ale4=0
         var ale1=0
-        ale1 = (0..aleatori.size).random()
-        ale1 = aleatori[ale1].id.toInt()
+        ale1 = (1..aleatori.size).random()
+        ale1 = aleatori[ale1-1].id.toInt()
         do {
-            ale2 = (0..aleatori.size).random()
-            ale2 = aleatori[ale2].id.toInt()
+            ale2 = (1..aleatori.size).random()
+            ale2 = aleatori[ale2-1].id.toInt()
         }while(ale2==ale1)
         do {
-            ale3 = (0..aleatori.size).random()
-            ale3 = aleatori[ale3].id.toInt()
+            ale3 = (1..aleatori.size).random()
+            ale3 = aleatori[ale3-1].id.toInt()
         }while(ale3==ale1 || ale3==ale2)
         do{
-            ale4 = (0..aleatori.size).random()
-            ale4 = aleatori[ale4].id.toInt()
+            ale4 = (1..aleatori.size).random()
+            ale4 = aleatori[ale4-1].id.toInt()
         }while(ale4==ale1 || ale4==ale2 || ale4==ale3)
 
         val paraula = roomViewModel.palabraFra(ale1.toString())
