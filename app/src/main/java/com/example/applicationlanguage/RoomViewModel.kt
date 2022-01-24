@@ -273,22 +273,28 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
 
     fun creardades(nameid:String){
         val newuser = usuaridades()
-        newuser.userid= nameid.toLong()
-        newuser.idiomaid="1"
-        newuser.completado=false
-        database.insertdades(newuser)
-        newuser.userid= nameid.toLong()
-        newuser.idiomaid="2"
-        newuser.completado=false
-        database.insertdades(newuser)
-        newuser.userid= nameid.toLong()
-        newuser.idiomaid="3"
-        newuser.completado=false
-        database.insertdades(newuser)
-        newuser.userid= nameid.toLong()
-        newuser.idiomaid="4"
-        newuser.completado=false
-        database.insertdades(newuser)
+        for(i in database.getallidiomas()){
+            newuser.userid= nameid.toLong()
+            newuser.idiomaid=i.idiomaid
+            newuser.completado=false
+            database.insertdades(newuser)
+        }
+//        newuser.userid= nameid.toLong()
+//        newuser.idiomaid="1"
+//        newuser.completado=false
+//        database.insertdades(newuser)
+//        newuser.userid= nameid.toLong()
+//        newuser.idiomaid="2"
+//        newuser.completado=false
+//        database.insertdades(newuser)
+//        newuser.userid= nameid.toLong()
+//        newuser.idiomaid="3"
+//        newuser.completado=false
+//        database.insertdades(newuser)
+//        newuser.userid= nameid.toLong()
+//        newuser.idiomaid="4"
+//        newuser.completado=false
+//        database.insertdades(newuser)
     }
     fun getuserid(name: String): String{
         return database.getiduser(name).userid.toString()

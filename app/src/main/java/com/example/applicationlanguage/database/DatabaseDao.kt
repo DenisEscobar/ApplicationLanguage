@@ -27,6 +27,8 @@ interface DatabaseDao {
     //idioma
     @Insert
     suspend fun insertidioma(idioma: idioma)
+    @Query("SELECT * From idioma")
+    fun getallidiomas(): List<idioma>
 
     //palabras
     @Insert
