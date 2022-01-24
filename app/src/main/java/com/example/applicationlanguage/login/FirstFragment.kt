@@ -12,6 +12,7 @@ import com.example.applicationlanguage.RoomViewModel
 import com.example.applicationlanguage.RoomViewModelFactory
 import com.example.applicationlanguage.database.database
 import com.example.applicationlanguage.databinding.FragmentFirstBinding
+import com.example.applicationlanguage.sharedpref.sharedApp
 
 class FirstFragment : Fragment() {
    override fun onCreateView(
@@ -30,6 +31,7 @@ class FirstFragment : Fragment() {
 
         binding.buttonGoIdioma.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_firstFragment_to_idiomaFragment)
+            sharedApp.prefes.name=""
         }
        binding.buttonGoLogin.setOnClickListener { view : View ->
            view.findNavController().navigate(R.id.action_firstFragment_to_loginFragment)

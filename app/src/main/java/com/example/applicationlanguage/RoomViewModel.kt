@@ -285,6 +285,10 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
         newuser.idiomaid="3"
         newuser.completado=false
         database.insertdades(newuser)
+        newuser.userid= nameid.toLong()
+        newuser.idiomaid="4"
+        newuser.completado=false
+        database.insertdades(newuser)
     }
     fun getuserid(name: String): String{
         return database.getiduser(name).userid.toString()

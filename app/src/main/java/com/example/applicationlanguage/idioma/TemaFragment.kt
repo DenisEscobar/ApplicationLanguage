@@ -35,16 +35,16 @@ class TemaFragment : Fragment() {
         val viewModelFactory = RoomViewModelFactory(dataSource, application)
         val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
         var user = sharedApp.prefes.name
-        if(!user.isNullOrEmpty()) {
+        if(!user.isNullOrBlank()) {
             var idiomanum = roomViewModel.database.getidiomaid(modelShare.getidioma(),"numero")
             var compnum = roomViewModel.database.getAlldades(roomViewModel.getuserid(user.toString()), idiomanum)
             if(compnum.completado==true){
-                binding.buttonNumeros.setTextColor(Color.parseColor("#63FF33"))
+                binding.buttonNumeros.setBackgroundColor(Color.parseColor("#63AA33"))
             }
             var idiomaalfa = roomViewModel.database.getidiomaid(modelShare.getidioma(),"alfabeto")
             var compalfa = roomViewModel.database.getAlldades(roomViewModel.getuserid(user.toString()),idiomaalfa)
             if(compalfa.completado==true){
-                binding.buttonAlfabeto.setTextColor(Color.parseColor("#63FF33"))
+                binding.buttonAlfabeto.setBackgroundColor(Color.parseColor("#63AA33"))
             }
         }
 

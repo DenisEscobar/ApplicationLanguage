@@ -6,7 +6,7 @@ import androidx.room.Entity
 
 @Entity(tableName="dades")
 data class usuaridades(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     var id:Long=0L,
     @ColumnInfo(name="id_usuari")
     var userid:Long=0L,

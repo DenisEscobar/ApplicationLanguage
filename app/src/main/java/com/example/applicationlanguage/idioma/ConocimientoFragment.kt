@@ -48,6 +48,7 @@ class ConocimientoFragment : Fragment() {
         recyclerView.adapter = ConocimientoFragmentAdapter(
             application,
             roomViewModel.getconocimiento(tema),
+            roomViewModel,
             modelShare
         )
 
