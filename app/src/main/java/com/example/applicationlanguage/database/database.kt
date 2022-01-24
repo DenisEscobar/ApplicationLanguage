@@ -71,8 +71,38 @@ abstract class database: RoomDatabase() {
                 idioma.conocimiento="personas"
                 idioma.tema="frases"
                 db.databaseDao.insertidioma(idioma)
+                idioma.idiomaid="5"
+                idioma.idioma="ingles"
+                idioma.conocimiento="familia"
+                idioma.tema="vocabulario"
+                db.databaseDao.insertidioma(idioma)
 
+                palabra.idiomaid="5"
+                palabra.aprenderpalabra="mom"
+                palabra.localpalabra="madre"
+                db.databaseDao.insertpalabra(palabra)
+                palabra.idiomaid="5"
+                palabra.aprenderpalabra="brother"
+                palabra.localpalabra="hermano"
+                db.databaseDao.insertpalabra(palabra)
+                palabra.idiomaid="5"
+                palabra.aprenderpalabra="sister"
+                palabra.localpalabra="hermana"
+                db.databaseDao.insertpalabra(palabra)
+                palabra.idiomaid="5"
+                palabra.aprenderpalabra="dad"
+                palabra.localpalabra="padre"
+                db.databaseDao.insertpalabra(palabra)
+                palabra.idiomaid="5"
+                palabra.aprenderpalabra="uncle"
+                palabra.localpalabra="tio"
+                db.databaseDao.insertpalabra(palabra)
+                palabra.idiomaid="5"
+                palabra.aprenderpalabra="aunt"
+                palabra.localpalabra="tia"
+                db.databaseDao.insertpalabra(palabra)
             //frases
+
                 frase.idiomaid="4"
                 frase.aprenderfrase="I and you"
                 frase.localfrase="yo y tú"

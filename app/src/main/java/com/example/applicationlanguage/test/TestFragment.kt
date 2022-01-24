@@ -14,6 +14,8 @@ import com.example.applicationlanguage.RoomViewModel
 import com.example.applicationlanguage.RoomViewModelFactory
 import com.example.applicationlanguage.ShareViewModel
 import com.example.applicationlanguage.database.database
+import com.example.applicationlanguage.database.palabra_frase
+import com.example.applicationlanguage.database.palabras
 import com.example.applicationlanguage.databinding.FragmentTestBinding
 
 class TestFragment : Fragment() {
@@ -42,7 +44,7 @@ class TestFragment : Fragment() {
             conocimiento = it
         })
         tema = model.gettema().toString()
-        idioma = model.gettema().toString()
+        idioma = model.getidioma().toString()
         conocimiento = model.getconocimiento().toString()
         val application = requireNotNull(this.activity).application
         val dataSource = database.getInstance(application).databaseDao
@@ -196,7 +198,8 @@ class TestFragment : Fragment() {
                 letra(binding, aleatoriletra, con)
             }
         } else if (tema.equals("vocabulario")) {
-            val aleatoripal = roomViewModel.getallids_fra()
+            var idiomaid = roomViewModel.mirarid(idioma,conocimiento)
+            val aleatoripal = roomViewModel.getallids_fra(idiomaid)
             paraula(binding, aleatoripal, con)
 
             binding.buttonOpcion1.setOnClickListener { view: View ->
@@ -270,7 +273,8 @@ class TestFragment : Fragment() {
             }
 
         } else if (tema.equals("frases")) {
-            val aleatorifra = roomViewModel.getallids_frases()
+            var idiomaid = roomViewModel.mirarid(idioma,conocimiento)
+            val aleatorifra = roomViewModel.getallids_frases(idiomaid)
             frase(binding, aleatorifra, con)
 
             binding.buttonOpcion1.setOnClickListener { view: View ->
@@ -435,7 +439,7 @@ class TestFragment : Fragment() {
         }
     }
     //palabra
-    fun paraula(binding: FragmentTestBinding, aleatori: String, con: Int){
+    fun paraula(binding: FragmentTestBinding, aleatori: List<palabras>, con: Int){
         binding.textViewPuntuacionRestante.setText("Llevas "+con+" de 10")
 
         val application = requireNotNull(this.activity).application
@@ -447,15 +451,19 @@ class TestFragment : Fragment() {
         var ale3=0
         var ale4=0
         var ale1=0
-        ale1 = (1..aleatori.toInt()).random()
+        ale1 = (0..aleatori.size).random()
+        ale1 = aleatori[ale1].id.toInt()
         do {
-            ale2 = (1..aleatori.toInt()).random()
+            ale2 = (0..aleatori.size).random()
+            ale2 = aleatori[ale2].id.toInt()
         }while(ale2==ale1)
         do {
-            ale3 = (1..aleatori.toInt()).random()
+            ale3 = (0..aleatori.size).random()
+            ale3 = aleatori[ale3].id.toInt()
         }while(ale3==ale1 || ale3==ale2)
         do{
-            ale4 = (1..aleatori.toInt()).random()
+            ale4 = (0..aleatori.size).random()
+            ale4 = aleatori[ale4].id.toInt()
         }while(ale4==ale1 || ale4==ale2 || ale4==ale3)
 
         val paraula = roomViewModel.palabraFra(ale1.toString())
@@ -479,7 +487,7 @@ class TestFragment : Fragment() {
         }
     }
     //frases
-    fun frase(binding: FragmentTestBinding, aleatori: String, con: Int){
+    fun frase(binding: FragmentTestBinding, aleatori: List<palabra_frase>, con: Int){
         binding.textViewPuntuacionRestante.setText("Llevas "+con+" de 10")
 
         val application = requireNotNull(this.activity).application
@@ -491,15 +499,19 @@ class TestFragment : Fragment() {
         var ale3=0
         var ale4=0
         var ale1=0
-        ale1 = (1..aleatori.toInt()).random()
+        ale1 = (0..aleatori.size).random()
+        ale1 = aleatori[ale1].id.toInt()
         do {
-            ale2 = (1..aleatori.toInt()).random()
+            ale2 = (0..aleatori.size).random()
+            ale2 = aleatori[ale2].id.toInt()
         }while(ale2==ale1)
         do {
-            ale3 = (1..aleatori.toInt()).random()
+            ale3 = (0..aleatori.size).random()
+            ale3 = aleatori[ale3].id.toInt()
         }while(ale3==ale1 || ale3==ale2)
         do{
-            ale4 = (1..aleatori.toInt()).random()
+            ale4 = (0..aleatori.size).random()
+            ale4 = aleatori[ale4].id.toInt()
         }while(ale4==ale1 || ale4==ale2 || ale4==ale3)
 
         val paraula = roomViewModel.palabraFrases(ale1.toString())

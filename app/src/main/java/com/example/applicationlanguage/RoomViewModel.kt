@@ -249,8 +249,8 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
     fun getletra(palabra:String): palabra_alfabeto{
         return database.getletra(palabra)
     }
-    fun getallids_fra(): String{
-        return database.getAll_Palabras_id()
+    fun getallids_fra(id:String): List<palabras>{
+        return database.getAll_Palabras_id(id)
     }
     fun palabraFra(idFrase:String): palabras {
         return database.getPalabras(idFrase)
@@ -259,8 +259,8 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
         return database.getpalabrasfra(palabra)
     }
 //falsta mas....
-    fun getallids_frases(): String{
-        return database.getAll_Frase_id()
+    fun getallids_frases(id:String): List<palabra_frase>{
+        return database.getAll_Frase_id(id)
     }
     fun palabraFrases(idFrase:String): palabra_frase {
         return database.getFrases(idFrase)
