@@ -2,6 +2,8 @@ package com.example.applicationlanguage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -31,5 +33,9 @@ class MainActivity : AppCompatActivity() {
         val navController = this.findNavController(R.id.myNavHostFragment)
         //return NavigationUI.navigateUp(navController, drawerLayout)
         return navController.navigateUp()
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+        return false
     }
 }

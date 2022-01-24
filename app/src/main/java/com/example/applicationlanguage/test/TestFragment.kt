@@ -370,13 +370,13 @@ class TestFragment : Fragment() {
             ale4 = (1..aleatori.toInt()).random()
         }while(ale4==ale1 || ale4==ale2 || ale4==ale3)
 
-        val paraula=roomViewModel.palabraNumero(ale1.toString())
+        val paraula = roomViewModel.palabraNumero(ale1.toString())
         binding.buttonOpcion1.text = paraula.aprenderpalabra
         val palabla2 = roomViewModel.palabraNumero(ale2.toString())
         binding.buttonOpcion2.text = palabla2.aprenderpalabra
-        val paraula3=roomViewModel.palabraNumero(ale3.toString())
+        val paraula3 = roomViewModel.palabraNumero(ale3.toString())
         binding.buttonOpcion3.text = paraula3.aprenderpalabra
-        val paraula4=roomViewModel.palabraNumero(ale4.toString())
+        val paraula4 = roomViewModel.palabraNumero(ale4.toString())
         binding.buttonOpcion4.text = paraula4.aprenderpalabra
 
         val aleace = (1..4).random()
@@ -414,13 +414,13 @@ class TestFragment : Fragment() {
             ale4 = (1..aleatori.toInt()).random()
         }while(ale4==ale1 || ale4==ale2 || ale4==ale3)
 
-        val paraula=roomViewModel.palabraletra(ale1.toString())
+        val paraula = roomViewModel.palabraletra(ale1.toString())
         binding.buttonOpcion1.text = paraula.pronunciacio_aprender
         val palabla2 = roomViewModel.palabraletra(ale2.toString())
         binding.buttonOpcion2.text = palabla2.pronunciacio_aprender
-        val paraula3=roomViewModel.palabraletra(ale3.toString())
+        val paraula3 = roomViewModel.palabraletra(ale3.toString())
         binding.buttonOpcion3.text = paraula3.pronunciacio_aprender
-        val paraula4=roomViewModel.palabraletra(ale4.toString())
+        val paraula4 = roomViewModel.palabraletra(ale4.toString())
         binding.buttonOpcion4.text = paraula4.pronunciacio_aprender
 
         val aleace = (1..4).random()
@@ -434,7 +434,7 @@ class TestFragment : Fragment() {
             binding.paraulaaencertar.setText(paraula4.localpalabra.toString())
         }
     }
-    //frases
+    //palabra
     fun paraula(binding: FragmentTestBinding, aleatori: String, con: Int){
         binding.textViewPuntuacionRestante.setText("Llevas "+con+" de 10")
 
@@ -458,13 +458,13 @@ class TestFragment : Fragment() {
             ale4 = (1..aleatori.toInt()).random()
         }while(ale4==ale1 || ale4==ale2 || ale4==ale3)
 
-        val paraula=roomViewModel.palabraFra(ale1.toString())
+        val paraula = roomViewModel.palabraFra(ale1.toString())
         binding.buttonOpcion1.text = paraula.aprenderpalabra
         val palabla2 = roomViewModel.palabraFra(ale2.toString())
         binding.buttonOpcion2.text = palabla2.aprenderpalabra
-        val paraula3=roomViewModel.palabraFra(ale3.toString())
+        val paraula3 = roomViewModel.palabraFra(ale3.toString())
         binding.buttonOpcion3.text = paraula3.aprenderpalabra
-        val paraula4=roomViewModel.palabraFra(ale4.toString())
+        val paraula4 = roomViewModel.palabraFra(ale4.toString())
         binding.buttonOpcion4.text = paraula4.aprenderpalabra
 
         val aleace = (1..4).random()
@@ -478,6 +478,7 @@ class TestFragment : Fragment() {
             binding.paraulaaencertar.setText(paraula4.localpalabra.toString())
         }
     }
+    //frases
     fun frase(binding: FragmentTestBinding, aleatori: String, con: Int){
         binding.textViewPuntuacionRestante.setText("Llevas "+con+" de 10")
 
@@ -501,13 +502,13 @@ class TestFragment : Fragment() {
             ale4 = (1..aleatori.toInt()).random()
         }while(ale4==ale1 || ale4==ale2 || ale4==ale3)
 
-        val paraula=roomViewModel.palabraFrases(ale1.toString())
+        val paraula = roomViewModel.palabraFrases(ale1.toString())
         binding.buttonOpcion1.text = paraula.aprenderfrase
         val palabla2 = roomViewModel.palabraFrases(ale2.toString())
         binding.buttonOpcion2.text = palabla2.aprenderfrase
-        val paraula3=roomViewModel.palabraFrases(ale3.toString())
+        val paraula3 = roomViewModel.palabraFrases(ale3.toString())
         binding.buttonOpcion3.text = paraula3.aprenderfrase
-        val paraula4=roomViewModel.palabraFrases(ale4.toString())
+        val paraula4 = roomViewModel.palabraFrases(ale4.toString())
         binding.buttonOpcion4.text = paraula4.aprenderfrase
 
         val aleace = (1..4).random()
