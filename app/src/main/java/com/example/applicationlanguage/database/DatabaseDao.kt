@@ -14,6 +14,8 @@ interface DatabaseDao {
     fun getpasswd(name:String):String
     @Query("SELECT * FROM usuari WHERE name=:name")
     fun getiduser(name:String):usuari
+    @Query("SELECT * FROM usuari")
+    fun getuser(): List<usuari>
 
     //usuaridades
     @Insert
@@ -23,7 +25,8 @@ interface DatabaseDao {
     fun getAlldades(id:String, idioma:String): usuaridades
     @Query("SELECT idiomaid From idioma where idioma=:idioma and conocimiento=:cono")
     fun getidiomaid(idioma:String, cono:String): String
-
+    @Query("SELECT idiomaid From idioma where idioma=:idioma and tema=:cono")
+    fun getidiomaidtema(idioma:String, cono:String): String
     //idioma
     @Insert
     suspend fun insertidioma(idioma: idioma)
@@ -57,18 +60,18 @@ interface DatabaseDao {
     fun getPalabras_numero(id: String): palabra_numero
     @Query("Select palabra_aprender, palabra_local, numero FROM palabra_numero WHERE idioma_id=:id ORDER BY id ASC")
     fun getAllpalabras_numero_id(id: String):List<palabraAprenderNumero>
-    @Query("Select max(id) FROM palabra_numero")
-    fun getAll_numero_id():String
-    @Query("Select * FROM palabra_numero WHERE palabra_local=:local")
-    fun getpalabra(local:String):palabra_numero
+    @Query("Select * FROM palabra_numero where idioma_id=:id")
+    fun getAll_numero_id(id:String):List<palabra_numero>
+    @Query("Select * FROM palabra_numero WHERE palabra_local=:local and idioma_id=:id")
+    fun getpalabra(local:String,id: String):palabra_numero
 
     //palabra_alfabeto
     @Query("SELECT * FROM palabra_alfabeto WHERE id=:id")
     fun getPalabras_letras(id: String): palabra_alfabeto
-    @Query("Select max(id) FROM palabra_alfabeto")
-    fun getAll_numero_id_letra():String
-    @Query("Select * FROM palabra_alfabeto WHERE palabra_local=:local")
-    fun getletra(local:String):palabra_alfabeto
+    @Query("Select * FROM palabra_alfabeto where idioma_id=:id")
+    fun getAll_numero_id_letra(id: String):List<palabra_alfabeto>
+    @Query("Select * FROM palabra_alfabeto WHERE palabra_local=:local and idioma_id=:id")
+    fun getletra(local:String,id: String):palabra_alfabeto
 
     //palabras
     @Query("Select * FROM palabras WHERE idioma_id=:id")
@@ -77,8 +80,8 @@ interface DatabaseDao {
     fun getPalabras(id: String): palabras
     @Query("Select * FROM palabras where idioma_id=:id")
     fun getAll_Palabras_id(id: String):List<palabras>
-    @Query("Select * FROM palabras WHERE palabra_local=:local")
-    fun getpalabrasfra(local:String):palabras
+    @Query("Select * FROM palabras WHERE palabra_local=:local and idioma_id=:id")
+    fun getpalabrasfra(local:String, id: String):palabras
 
     //palabras_frases
     @Insert
@@ -89,13 +92,13 @@ interface DatabaseDao {
     fun getFrases(id: String): palabra_frase
     @Query("Select * FROM frases Where idioma_id=:id")
     fun getAll_Frase_id(id:String):List<palabra_frase>
-    @Query("Select * FROM frases WHERE frase_local=:local")
-    fun getFrasesfra(local:String):palabra_frase
+    @Query("Select * FROM frases WHERE frase_local=:local and idioma_id=:id")
+    fun getFrasesfra(local:String, id: String):palabra_frase
 
 
     //cojer conocimientos
-    @Query("Select * FROM idioma WHERE tema=:local")
-    fun getConocimiento(local:String):List<idioma>
+    @Query("Select * FROM idioma WHERE tema=:local and idioma=:id")
+    fun getConocimiento(local:String, id:String):List<idioma>
 
     //completado
     @Query("Update dades set completado=1 WHERE id_idioma=:idioma and id_usuari=:usuari")

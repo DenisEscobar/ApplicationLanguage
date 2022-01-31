@@ -29,7 +29,8 @@ class AlfabetoMostrarFragment : Fragment() {
         val dataSource = database.getInstance(application).databaseDao
         val viewModelFactory = RoomViewModelFactory(dataSource, application)
         val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
-        var pronunciacion = roomViewModel.getletra(modelShare.getalfa())
+        var idiomaid=roomViewModel.mirarid(modelShare.getidioma(),modelShare.getconocimiento())
+        var pronunciacion = roomViewModel.getletra(modelShare.getalfa(), idiomaid)
         binding.textViewAlfabetopron.text = pronunciacion.pronunciacio_aprender.toString()
 
         return binding.root

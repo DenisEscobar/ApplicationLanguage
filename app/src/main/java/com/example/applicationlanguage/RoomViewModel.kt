@@ -224,6 +224,9 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
     fun mirarid(idioma:String, conocimineto:String): String {
         return database.getidiomaid(idioma, conocimineto)
     }
+    fun miraridtema(idioma:String, tema:String): String {
+        return database.getidiomaid(idioma, tema)
+    }
     fun palabraIdNumero(idIdioma:String): List<Long> {
         return database.getAllIdPalabras_numero(idIdioma)
     }
@@ -231,11 +234,11 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
         return database.getPalabras_numero(idNumero)
     }
 
-    fun getallids(): String{
-        return database.getAll_numero_id()
+    fun getallids(id: String): List<palabra_numero>{
+        return database.getAll_numero_id(id)
     }
-    fun getpalabra(palabra:String): palabra_numero{
-        return database.getpalabra(palabra)
+    fun getpalabra(palabra:String,id: String): palabra_numero{
+        return database.getpalabra(palabra,id)
     }
     fun getallidsalfabeto(idIdioma: String): List<palabraAprenderAlfabeto>{
         return database.getAllpalabras_alfabeto_id(idIdioma)
@@ -243,11 +246,11 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
     fun palabraletra(idNumero:String): palabra_alfabeto {
         return database.getPalabras_letras(idNumero)
     }
-    fun getallidsletra(): String{
-        return database.getAll_numero_id_letra()
+    fun getallidsletra(id:String): List<palabra_alfabeto>{
+        return database.getAll_numero_id_letra(id)
     }
-    fun getletra(palabra:String): palabra_alfabeto{
-        return database.getletra(palabra)
+    fun getletra(palabra:String,id: String): palabra_alfabeto{
+        return database.getletra(palabra,id)
     }
     fun getallids_fra(id:String): List<palabras>{
         return database.getAll_Palabras_id(id)
@@ -255,8 +258,8 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
     fun palabraFra(idFrase:String): palabras {
         return database.getPalabras(idFrase)
     }
-    fun getpalabrapal(palabra:String): palabras{
-        return database.getpalabrasfra(palabra)
+    fun getpalabrapal(palabra:String, id:String): palabras{
+        return database.getpalabrasfra(palabra,id)
     }
 //falsta mas....
     fun getallids_frases(id:String): List<palabra_frase>{
@@ -265,8 +268,8 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
     fun palabraFrases(idFrase:String): palabra_frase {
         return database.getFrases(idFrase)
     }
-    fun getpalabrafrases(palabra:String): palabra_frase{
-        return database.getFrasesfra(palabra)
+    fun getpalabrafrases(palabra:String, id: String): palabra_frase{
+        return database.getFrasesfra(palabra,id)
     }
 
 
@@ -299,9 +302,12 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
     fun getuserid(name: String): String{
         return database.getiduser(name).userid.toString()
     }
-
-    fun getconocimiento(name: String): List<idioma>{
-        return database.getConocimiento(name)
+    fun getuser(): List<usuari> {
+        val coma = database.getuser()
+        return coma
+    }
+    fun getconocimiento(name: String,id: String): List<idioma>{
+        return database.getConocimiento(name,id)
     }
     fun completar(idioma:String, usuari:String){
         database.competar(idioma,usuari)

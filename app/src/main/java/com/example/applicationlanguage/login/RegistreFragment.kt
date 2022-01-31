@@ -24,20 +24,40 @@ class RegistreFragment : Fragment() {
             R.layout.fragment_registre,container,false)
         binding.registrarte.setOnClickListener { view : View ->
             if(!binding.editTextTextName.text.toString().isEmpty() && !binding.editTextPassword.text.toString().isEmpty() && !binding.editTextTextEmail.text.toString().isEmpty()){
-                view.findNavController().navigate(R.id.action_registreFragment_to_idiomaFragment)
-
                 val application = requireNotNull(this.activity).application
                 val dataSource = database.getInstance(application).databaseDao
                 val viewModelFactory = RoomViewModelFactory(dataSource, application)
                 val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
 
-                roomViewModel.onRegisterUser(binding.editTextTextName.text.toString(),binding.editTextPassword.text.toString(),binding.editTextTextEmail.text.toString())
-                sharedApp.prefes.name=binding.editTextTextName.text.toString()
-                binding.editTextTextName.setText("")
-                binding.editTextPassword.setText("")
-                binding.editTextTextEmail.setText("")
-                val userid= roomViewModel.getuserid(sharedApp.prefes.name!!)
-                roomViewModel.creardades(userid)
+                var existe=false
+
+                val a = roomViewModel.getuser()
+                for(i in a){
+                    if(i.username==binding.editTextTextName.text.toString() || i.useremail==binding.editTextTextEmail.text.toString()){
+                        existe=true
+                    }
+                }
+                if(binding.editTextTextEmail.text.contains("@")) {
+                    if (!existe) {
+                        roomViewModel.onRegisterUser(
+                            binding.editTextTextName.text.toString(),
+                            binding.editTextPassword.text.toString(),
+                            binding.editTextTextEmail.text.toString()
+                        )
+                        sharedApp.prefes.name = binding.editTextTextName.text.toString()
+                        binding.editTextTextName.setText("")
+                        binding.editTextPassword.setText("")
+                        binding.editTextTextEmail.setText("")
+                        val userid = roomViewModel.getuserid(sharedApp.prefes.name!!)
+                        roomViewModel.creardades(userid)
+
+                        view.findNavController().navigate(R.id.action_registreFragment_to_idiomaFragment)
+                    } else {
+                        binding.TextViewerror.setText("el email o usuari existeix")
+                    }
+                }else{
+                    binding.TextViewerror.setText("no es tipus email")
+                }
             }else {
                 if (binding.editTextTextEmail.text.toString().isEmpty()) {
                     binding.TextViewerror.setText("el email no pot ser vuit")

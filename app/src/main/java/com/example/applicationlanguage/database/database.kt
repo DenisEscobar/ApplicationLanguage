@@ -50,6 +50,206 @@ abstract class database: RoomDatabase() {
                 val alf = palabra_alfabeto()
                 val palabra = palabras()
                 val frase = palabra_frase()
+
+                //frances
+                idioma.idiomaid="6"
+                idioma.idioma="frances"
+                idioma.conocimiento="numero"
+                idioma.tema="numero"
+                db.databaseDao.insertidioma(idioma)
+                idioma.idiomaid="7"
+                idioma.idioma="frances"
+                idioma.conocimiento="alfabeto"
+                idioma.tema="alfabeto"
+                db.databaseDao.insertidioma(idioma)
+                idioma.idiomaid="8"
+                idioma.idioma="frances"
+                idioma.conocimiento="sentimiento"
+                idioma.tema="vocabulario"
+                db.databaseDao.insertidioma(idioma)
+                idioma.idiomaid="9"
+                idioma.idioma="frances"
+                idioma.conocimiento="personas"
+                idioma.tema="frases"
+                db.databaseDao.insertidioma(idioma)
+                idioma.idiomaid="10"
+                idioma.idioma="frances"
+                idioma.conocimiento="familia"
+                idioma.tema="vocabulario"
+                db.databaseDao.insertidioma(idioma)
+
+                //tema
+                palabra.idiomaid="10"
+                palabra.aprenderpalabra="mère"
+                palabra.localpalabra="madre"
+                db.databaseDao.insertpalabra(palabra)
+                palabra.idiomaid="10"
+                palabra.aprenderpalabra="frère"
+                palabra.localpalabra="hermano"
+                db.databaseDao.insertpalabra(palabra)
+                palabra.idiomaid="10"
+                palabra.aprenderpalabra="sœur"
+                palabra.localpalabra="hermana"
+                db.databaseDao.insertpalabra(palabra)
+                palabra.idiomaid="10"
+                palabra.aprenderpalabra="papa"
+                palabra.localpalabra="padre"
+                db.databaseDao.insertpalabra(palabra)
+                palabra.idiomaid="10"
+                palabra.aprenderpalabra="l'oncle"
+                palabra.localpalabra="tio"
+                db.databaseDao.insertpalabra(palabra)
+                palabra.idiomaid="10"
+                palabra.aprenderpalabra="tante"
+                palabra.localpalabra="tia"
+                db.databaseDao.insertpalabra(palabra)
+                //frases
+
+                frase.idiomaid="9"
+                frase.aprenderfrase="moi et toi"
+                frase.localfrase="yo y tú"
+                db.databaseDao.insert_frases(frase)
+                frase.idiomaid="9"
+                frase.aprenderfrase="lui et elle"
+                frase.localfrase="el y ella"
+                db.databaseDao.insert_frases(frase)
+                frase.idiomaid="9"
+                frase.aprenderfrase="ma famille est ici"
+                frase.localfrase="mi familia esta aqui"
+                db.databaseDao.insert_frases(frase)
+                frase.idiomaid="9"
+                frase.aprenderfrase="Tu es là"
+                frase.localfrase="vosotraos estais aqui"
+                db.databaseDao.insert_frases(frase)
+                frase.idiomaid="9"
+                frase.aprenderfrase="l'homme"
+                frase.localfrase="el hombre"
+                db.databaseDao.insert_frases(frase)
+                frase.idiomaid="9"
+                frase.aprenderfrase="la femme"
+                frase.localfrase="la mujer"
+                db.databaseDao.insert_frases(frase)
+                frase.idiomaid="9"
+                frase.aprenderfrase="le garçon"
+                frase.localfrase="el niño"
+                db.databaseDao.insert_frases(frase)
+                frase.idiomaid="9"
+                frase.aprenderfrase="une famille"
+                frase.localfrase="una familia"
+                db.databaseDao.insert_frases(frase)
+                frase.idiomaid="9"
+                frase.aprenderfrase="ma famille"
+                frase.localfrase="mi familia"
+                db.databaseDao.insert_frases(frase)
+                //palabras
+                palabra.idiomaid="8"
+                palabra.aprenderpalabra="affecté"
+                palabra.localpalabra="afecto"
+                palabra.idiomaid="8"
+                palabra.aprenderpalabra="aller à"
+                palabra.localpalabra="ira"
+                db.databaseDao.insertpalabra(palabra)
+                palabra.idiomaid="8"
+                palabra.aprenderpalabra="ennui"
+                palabra.localpalabra="aburrimiento"
+                db.databaseDao.insertpalabra(palabra)
+                palabra.idiomaid="8"
+                palabra.aprenderpalabra="confiance"
+                palabra.localpalabra="confianza"
+                db.databaseDao.insertpalabra(palabra)
+                palabra.idiomaid="8"
+                palabra.aprenderpalabra="la créativité"
+                palabra.localpalabra="creatividad"
+                db.databaseDao.insertpalabra(palabra)
+                palabra.idiomaid="8"
+                palabra.aprenderpalabra="curiosité"
+                palabra.localpalabra="curiosidad"
+                db.databaseDao.insertpalabra(palabra)
+                //numero
+                num.idiomaid="6"
+                num.aprenderpalabra="un"
+                num.localpalabra="uno"
+                num.numero=1
+                db.databaseDao.insert_numero(num)
+                num.idiomaid="6"
+                num.aprenderpalabra="deux"
+                num.localpalabra="dos"
+                num.numero=2
+                db.databaseDao.insert_numero(num)
+                num.idiomaid="6"
+                num.aprenderpalabra="trois"
+                num.localpalabra="tres"
+                num.numero=3
+                db.databaseDao.insert_numero(num)
+                num.idiomaid="6"
+                num.aprenderpalabra="quatre"
+                num.localpalabra="cuatro"
+                num.numero=4
+                db.databaseDao.insert_numero(num)
+                num.idiomaid="6"
+                num.aprenderpalabra="cinq"
+                num.localpalabra="cinco"
+                num.numero=5
+                db.databaseDao.insert_numero(num)
+                num.idiomaid="6"
+                num.aprenderpalabra="six"
+                num.localpalabra="seis"
+                num.numero=6
+                db.databaseDao.insert_numero(num)
+                num.idiomaid="6"
+                num.aprenderpalabra="sept"
+                num.localpalabra="siete"
+                num.numero=7
+                db.databaseDao.insert_numero(num)
+                num.idiomaid="6"
+                num.aprenderpalabra="huit"
+                num.localpalabra="ocho"
+                num.numero=8
+                db.databaseDao.insert_numero(num)
+                num.idiomaid="6"
+                num.aprenderpalabra="neuf"
+                num.localpalabra="nueve"
+                num.numero=9
+                db.databaseDao.insert_numero(num)
+                num.idiomaid="6"
+                num.aprenderpalabra="dix"
+                num.localpalabra="diez"
+                num.numero=10
+                db.databaseDao.insert_numero(num)
+                //alfabeto
+                alf.idiomaid="7"
+                alf.aprenderpalabra="a"
+                alf.localpalabra="a"
+                alf.pronunciacio_aprender="a"
+                alf.pronunciacio_local="a"
+                db.databaseDao.insert_alfabeto(alf)
+                alf.idiomaid="7"
+                alf.aprenderpalabra="b"
+                alf.localpalabra="b"
+                alf.pronunciacio_aprender="be"
+                alf.pronunciacio_local="b"
+                db.databaseDao.insert_alfabeto(alf)
+                alf.idiomaid="7"
+                alf.aprenderpalabra="c"
+                alf.localpalabra="c"
+                alf.pronunciacio_aprender="ce"
+                alf.pronunciacio_local="c"
+                db.databaseDao.insert_alfabeto(alf)
+                alf.idiomaid="7"
+                alf.aprenderpalabra="d"
+                alf.localpalabra="d"
+                alf.pronunciacio_aprender="de"
+                alf.pronunciacio_local="d"
+                db.databaseDao.insert_alfabeto(alf)
+                alf.idiomaid="7"
+                alf.aprenderpalabra="e"
+                alf.localpalabra="e"
+                alf.pronunciacio_aprender="e"
+                alf.pronunciacio_local="e"
+                db.databaseDao.insert_alfabeto(alf)
+
+
+                //ingles
             //temas
                 idioma.idiomaid="1"
                 idioma.idioma="ingles"

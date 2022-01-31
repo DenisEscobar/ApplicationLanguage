@@ -42,12 +42,13 @@ class ConocimientoFragment : Fragment() {
         val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
         //roomViewModel.verpalabras(conocimiento,idioma)
         //binding.textViewpalabra.text = roomViewModel.getpal()?.numero.toString()
+        var idiomaid=roomViewModel.miraridtema(idioma,tema)
         modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
         val recyclerView: RecyclerView = binding.recyclerViewConocimiento
         recyclerView.layoutManager= LinearLayoutManager(this.activity)
         recyclerView.adapter = ConocimientoFragmentAdapter(
             application,
-            roomViewModel.getconocimiento(tema),
+            roomViewModel.getconocimiento(tema,idioma),
             roomViewModel,
             modelShare
         )

@@ -31,10 +31,14 @@ class IdiomaFragment : Fragment() {
             modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
             modelShare.sendidioma(idioma)
         }
-        binding.buttonFrances.setBackgroundColor(Color.parseColor("#DCDC7F"))
-        binding.buttonFrances.setOnClickListener {
-            var toast= Toast.makeText(requireContext(), "Proximamente",Toast.LENGTH_SHORT)
-            toast.show()
+        //binding.buttonFrances.setBackgroundColor(Color.parseColor("#DCDC7F"))
+        binding.buttonFrances.setOnClickListener {view:View ->
+            view.findNavController().navigate(R.id.action_idiomaFragment_to_temaFragment)
+            var idioma="frances"
+            modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
+            modelShare.sendidioma(idioma)
+//            var toast= Toast.makeText(requireContext(), "Proximamente",Toast.LENGTH_SHORT)
+//            toast.show()
         }
         binding.buttonJapones.setBackgroundColor(Color.parseColor("#DCDC7F"))
         binding.buttonJapones.setOnClickListener {
