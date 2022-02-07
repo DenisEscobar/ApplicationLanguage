@@ -13,13 +13,14 @@
             android:id="@+id/buttonIngles"
             android:layout_width="182dp"
             android:layout_height="149dp"
+            android:layout_marginStart="19dp"
+            android:layout_marginEnd="12dp"
             android:background="@drawable/borde_redondo"
             android:text="Ingles"
             android:textColor="@color/white"
             app:cornerRadius="90dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/buttonFrances"
-            app:layout_constraintHorizontal_bias="0.516"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.371" />
@@ -28,31 +29,29 @@
             android:id="@+id/buttonRuso"
             android:layout_width="182dp"
             android:layout_height="149dp"
-            android:layout_marginStart="4dp"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="12dp"
             android:background="@drawable/borde_redondo"
             android:text="Ruso"
             android:textColor="@color/white"
             app:cornerRadius="90dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/buttonJapones"
-            app:layout_constraintHorizontal_bias="0.444"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonIngles"
-            app:layout_constraintVertical_bias="0.119" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonIngles" />
 
         <Button
             android:id="@+id/buttonJapones"
             android:layout_width="182dp"
             android:layout_height="149dp"
+            android:layout_marginTop="24dp"
             android:background="@drawable/borde_redondo"
             android:text="Japones"
             app:cornerRadius="90dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.93"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonFrances"
-            app:layout_constraintVertical_bias="0.119" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonFrances" />
 
         <Button
             android:id="@+id/buttonFrances"
