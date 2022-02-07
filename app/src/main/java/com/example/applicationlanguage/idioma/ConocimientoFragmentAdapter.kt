@@ -49,7 +49,7 @@ class ConocimientoFragmentAdapter(
                 idiomanum
             )
             if (compnum.completado == true) {
-                holder.nametv.setBackgroundColor(Color.parseColor("#63AA33"))
+                holder.nametv.setBackgroundResource(R.drawable.borde_redondo_comp)
             }
         }
 

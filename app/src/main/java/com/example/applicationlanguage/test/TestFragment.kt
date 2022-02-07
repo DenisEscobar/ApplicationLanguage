@@ -55,7 +55,7 @@ class TestFragment : Fragment() {
 
             binding.buttonOpcion1.setOnClickListener { view: View ->
                 val palabraacertar =
-                    roomViewModel.getpalabra(binding.paraulaaencertar.text.toString(),idiomaid)
+                    roomViewModel.getpalabra(binding.paraulaaencertar.text.toString().lowercase(),idiomaid)
                 if (binding.buttonOpcion1.text.toString()
                         .equals(palabraacertar.aprenderpalabra.toString())
                 ) {
@@ -73,7 +73,7 @@ class TestFragment : Fragment() {
 
             binding.buttonOpcion2.setOnClickListener { view: View ->
                 val palabraacertar =
-                    roomViewModel.getpalabra(binding.paraulaaencertar.text.toString(),idiomaid)
+                    roomViewModel.getpalabra(binding.paraulaaencertar.text.toString().lowercase(),idiomaid)
                 if (binding.buttonOpcion2.text.toString()
                         .equals(palabraacertar.aprenderpalabra.toString())
                 ) {
@@ -90,7 +90,7 @@ class TestFragment : Fragment() {
             }
             binding.buttonOpcion3.setOnClickListener { view: View ->
                 val palabraacertar =
-                    roomViewModel.getpalabra(binding.paraulaaencertar.text.toString(),idiomaid)
+                    roomViewModel.getpalabra(binding.paraulaaencertar.text.toString().lowercase(),idiomaid)
                 if (binding.buttonOpcion3.text.toString()
                         .equals(palabraacertar.aprenderpalabra.toString())
                 ) {
@@ -107,7 +107,7 @@ class TestFragment : Fragment() {
             }
             binding.buttonOpcion4.setOnClickListener { view: View ->
                 val palabraacertar =
-                    roomViewModel.getpalabra(binding.paraulaaencertar.text.toString(),idiomaid)
+                    roomViewModel.getpalabra(binding.paraulaaencertar.text.toString().lowercase(),idiomaid)
                 if (binding.buttonOpcion4.text.toString()
                         .equals(palabraacertar.aprenderpalabra.toString())
                 ) {
@@ -129,7 +129,7 @@ class TestFragment : Fragment() {
 
             binding.buttonOpcion1.setOnClickListener { view: View ->
                 val palabraacertar =
-                    roomViewModel.getletra(binding.paraulaaencertar.text.toString(),idiomaid)
+                    roomViewModel.getletra(binding.paraulaaencertar.text.toString().lowercase(),idiomaid)
                 if (binding.buttonOpcion1.text.toString()
                         .equals(palabraacertar.pronunciacio_aprender.toString())
                 ) {
@@ -147,7 +147,7 @@ class TestFragment : Fragment() {
 
             binding.buttonOpcion2.setOnClickListener { view: View ->
                 val palabraacertar =
-                    roomViewModel.getletra(binding.paraulaaencertar.text.toString(),idiomaid)
+                    roomViewModel.getletra(binding.paraulaaencertar.text.toString().lowercase(),idiomaid)
                 if (binding.buttonOpcion2.text.toString()
                         .equals(palabraacertar.pronunciacio_aprender.toString())
                 ) {
@@ -164,7 +164,7 @@ class TestFragment : Fragment() {
             }
             binding.buttonOpcion3.setOnClickListener { view: View ->
                 val palabraacertar =
-                    roomViewModel.getletra(binding.paraulaaencertar.text.toString(),idiomaid)
+                    roomViewModel.getletra(binding.paraulaaencertar.text.toString().lowercase(),idiomaid)
                 if (binding.buttonOpcion3.text.toString()
                         .equals(palabraacertar.pronunciacio_aprender.toString())
                 ) {
@@ -181,7 +181,7 @@ class TestFragment : Fragment() {
             }
             binding.buttonOpcion4.setOnClickListener { view: View ->
                 val palabraacertar =
-                    roomViewModel.getletra(binding.paraulaaencertar.text.toString(),idiomaid)
+                    roomViewModel.getletra(binding.paraulaaencertar.text.toString().lowercase(),idiomaid)
                 if (binding.buttonOpcion4.text.toString()
                         .equals(palabraacertar.pronunciacio_aprender.toString())
                 ) {
@@ -203,7 +203,7 @@ class TestFragment : Fragment() {
 
             binding.buttonOpcion1.setOnClickListener { view: View ->
                 val palabraacertar =
-                    roomViewModel.getpalabrapal(binding.paraulaaencertar.text.toString(),idiomaid)
+                    roomViewModel.getpalabrapal(binding.paraulaaencertar.text.toString().lowercase(),idiomaid)
                 if (binding.buttonOpcion1.text.toString()
                         .equals(palabraacertar.aprenderpalabra.toString())
                 ) {
@@ -221,7 +221,7 @@ class TestFragment : Fragment() {
 
             binding.buttonOpcion2.setOnClickListener { view: View ->
                 val palabraacertar =
-                    roomViewModel.getpalabrapal(binding.paraulaaencertar.text.toString(),idiomaid)
+                    roomViewModel.getpalabrapal(binding.paraulaaencertar.text.toString().lowercase(),idiomaid)
                 if (binding.buttonOpcion2.text.toString()
                         .equals(palabraacertar.aprenderpalabra.toString())
                 ) {
@@ -238,7 +238,7 @@ class TestFragment : Fragment() {
             }
             binding.buttonOpcion3.setOnClickListener { view: View ->
                 val palabraacertar =
-                    roomViewModel.getpalabrapal(binding.paraulaaencertar.text.toString(),idiomaid)
+                    roomViewModel.getpalabrapal(binding.paraulaaencertar.text.toString().lowercase(),idiomaid)
                 if (binding.buttonOpcion3.text.toString()
                         .equals(palabraacertar.aprenderpalabra.toString())
                 ) {
@@ -255,7 +255,7 @@ class TestFragment : Fragment() {
             }
             binding.buttonOpcion4.setOnClickListener { view: View ->
                 val palabraacertar =
-                    roomViewModel.getpalabrapal(binding.paraulaaencertar.text.toString(),idiomaid)
+                    roomViewModel.getpalabrapal(binding.paraulaaencertar.text.toString().lowercase(),idiomaid)
                 if (binding.buttonOpcion4.text.toString()
                         .equals(palabraacertar.aprenderpalabra.toString())
                 ) {
@@ -278,7 +278,7 @@ class TestFragment : Fragment() {
 
             binding.buttonOpcion1.setOnClickListener { view: View ->
                 val palabraacertar =
-                    roomViewModel.getpalabrafrases(binding.paraulaaencertar.text.toString(),idiomaid)
+                    roomViewModel.getpalabrafrases(binding.paraulaaencertar.text.toString().lowercase(),idiomaid)
                 if (binding.buttonOpcion1.text.toString()
                         .equals(palabraacertar.aprenderfrase.toString())
                 ) {
@@ -296,7 +296,7 @@ class TestFragment : Fragment() {
 
             binding.buttonOpcion2.setOnClickListener { view: View ->
                 val palabraacertar =
-                    roomViewModel.getpalabrafrases(binding.paraulaaencertar.text.toString(),idiomaid)
+                    roomViewModel.getpalabrafrases(binding.paraulaaencertar.text.toString().lowercase(),idiomaid)
                 if (binding.buttonOpcion2.text.toString()
                         .equals(palabraacertar.aprenderfrase.toString())
                 ) {
@@ -313,7 +313,7 @@ class TestFragment : Fragment() {
             }
             binding.buttonOpcion3.setOnClickListener { view: View ->
                 val palabraacertar =
-                    roomViewModel.getpalabrafrases(binding.paraulaaencertar.text.toString(),idiomaid)
+                    roomViewModel.getpalabrafrases(binding.paraulaaencertar.text.toString().lowercase(),idiomaid)
                 if (binding.buttonOpcion3.text.toString()
                         .equals(palabraacertar.aprenderfrase.toString())
                 ) {
@@ -330,7 +330,7 @@ class TestFragment : Fragment() {
             }
             binding.buttonOpcion4.setOnClickListener { view: View ->
                 val palabraacertar =
-                    roomViewModel.getpalabrafrases(binding.paraulaaencertar.text.toString(),idiomaid)
+                    roomViewModel.getpalabrafrases(binding.paraulaaencertar.text.toString().lowercase(),idiomaid)
                 if (binding.buttonOpcion4.text.toString()
                         .equals(palabraacertar.aprenderfrase.toString())
                 ) {
@@ -384,13 +384,13 @@ class TestFragment : Fragment() {
 
         val aleace = (1..4).random()
         if(aleace==1) {
-            binding.paraulaaencertar.setText(paraula.localpalabra.toString())
+            binding.paraulaaencertar.setText(paraula.localpalabra.uppercase())
         }else if(aleace==2){
-            binding.paraulaaencertar.setText(palabla2.localpalabra.toString())
+            binding.paraulaaencertar.setText(palabla2.localpalabra.uppercase())
         }else if(aleace==3){
-            binding.paraulaaencertar.setText(paraula3.localpalabra.toString())
+            binding.paraulaaencertar.setText(paraula3.localpalabra.uppercase())
         }else if(aleace==4){
-            binding.paraulaaencertar.setText(paraula4.localpalabra.toString())
+            binding.paraulaaencertar.setText(paraula4.localpalabra.uppercase())
         }
     }
     //alfabeto
@@ -428,13 +428,13 @@ class TestFragment : Fragment() {
 
         val aleace = (1..4).random()
         if(aleace==1) {
-            binding.paraulaaencertar.setText(paraula.localpalabra.toString())
+            binding.paraulaaencertar.setText(paraula.localpalabra.uppercase())
         }else if(aleace==2){
-            binding.paraulaaencertar.setText(palabla2.localpalabra.toString())
+            binding.paraulaaencertar.setText(palabla2.localpalabra.uppercase())
         }else if(aleace==3){
-            binding.paraulaaencertar.setText(paraula3.localpalabra.toString())
+            binding.paraulaaencertar.setText(paraula3.localpalabra.uppercase())
         }else if(aleace==4){
-            binding.paraulaaencertar.setText(paraula4.localpalabra.toString())
+            binding.paraulaaencertar.setText(paraula4.localpalabra.uppercase())
         }
     }
     //palabra
@@ -476,13 +476,13 @@ class TestFragment : Fragment() {
 
         val aleace = (1..4).random()
         if(aleace==1) {
-            binding.paraulaaencertar.setText(paraula.localpalabra.toString())
+            binding.paraulaaencertar.setText(paraula.localpalabra.uppercase())
         }else if(aleace==2){
-            binding.paraulaaencertar.setText(palabla2.localpalabra.toString())
+            binding.paraulaaencertar.setText(palabla2.localpalabra.uppercase())
         }else if(aleace==3){
-            binding.paraulaaencertar.setText(paraula3.localpalabra.toString())
+            binding.paraulaaencertar.setText(paraula3.localpalabra.uppercase())
         }else if(aleace==4){
-            binding.paraulaaencertar.setText(paraula4.localpalabra.toString())
+            binding.paraulaaencertar.setText(paraula4.localpalabra.uppercase())
         }
     }
     //frases
@@ -524,13 +524,13 @@ class TestFragment : Fragment() {
 
         val aleace = (1..4).random()
         if(aleace==1) {
-            binding.paraulaaencertar.setText(paraula.localfrase.toString())
+            binding.paraulaaencertar.setText(paraula.localfrase.uppercase())
         }else if(aleace==2){
-            binding.paraulaaencertar.setText(palabla2.localfrase.toString())
+            binding.paraulaaencertar.setText(palabla2.localfrase.uppercase())
         }else if(aleace==3){
-            binding.paraulaaencertar.setText(paraula3.localfrase.toString())
+            binding.paraulaaencertar.setText(paraula3.localfrase.uppercase())
         }else if(aleace==4){
-            binding.paraulaaencertar.setText(paraula4.localfrase.toString())
+            binding.paraulaaencertar.setText(paraula4.localfrase.uppercase())
         }
     }
 }

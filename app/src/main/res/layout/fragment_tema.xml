@@ -3,16 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".idioma.TemaFragment">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#c5e1a5">
 
         <Button
             android:id="@+id/buttonParaulas"
             android:layout_width="182dp"
             android:layout_height="149dp"
             android:layout_marginStart="16dp"
+            android:background="@drawable/borde_redondo"
             android:text="VOCABULARIO"
+            android:textColor="@color/white"
             app:cornerRadius="90dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/buttonFrances"
@@ -25,7 +29,9 @@
             android:id="@+id/buttonNumeros"
             android:layout_width="182dp"
             android:layout_height="149dp"
+            android:background="@drawable/borde_redondo"
             android:text="NUMEROS"
+            android:textColor="@color/white"
             app:cornerRadius="90dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +45,9 @@
             android:layout_width="182dp"
             android:layout_height="149dp"
             android:layout_marginStart="16dp"
+            android:background="@drawable/borde_redondo"
             android:text="ALFABETO"
+            android:textColor="@color/white"
             app:cornerRadius="90dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/buttonJapones"
@@ -52,7 +60,9 @@
             android:id="@+id/buttonFrases"
             android:layout_width="182dp"
             android:layout_height="149dp"
+            android:background="@drawable/borde_redondo"
             android:text="FRASES"
+            android:textColor="@color/white"
             app:cornerRadius="90dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

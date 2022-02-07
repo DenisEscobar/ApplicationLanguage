@@ -3,9 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".login.loginFragment">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#c5e1a5">
 
         <EditText
             android:id="@+id/editTextTextPersonName"
@@ -14,6 +16,8 @@
             android:ems="10"
             android:hint="Usuari"
             android:inputType="textPersonName"
+            android:textColor="@color/black"
+            android:textColorHint="#434343"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,6 +32,8 @@
             android:ems="10"
             android:hint="Password"
             android:inputType="textPassword"
+            android:textColor="@color/black"
+            android:textColorHint="#434343"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
@@ -40,7 +46,9 @@
             android:id="@+id/buttonlogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/borde_redondo"
             android:text="LogIn"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -51,6 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Register"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

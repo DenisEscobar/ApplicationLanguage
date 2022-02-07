@@ -41,12 +41,12 @@ class TemaFragment : Fragment() {
 
             var compnum = roomViewModel.database.getAlldades(roomViewModel.getuserid(user.toString()), idiomanum)
             if(compnum.completado==true){
-                binding.buttonNumeros.setBackgroundColor(Color.parseColor("#63AA33"))
+                binding.buttonNumeros.setBackgroundResource(R.drawable.borde_redondo_comp)
             }
             var idiomaalfa = roomViewModel.database.getidiomaid(modelShare.getidioma(),"alfabeto")
             var compalfa = roomViewModel.database.getAlldades(roomViewModel.getuserid(user.toString()),idiomaalfa)
             if(compalfa.completado==true){
-                binding.buttonAlfabeto.setBackgroundColor(Color.parseColor("#63AA33"))
+                binding.buttonAlfabeto.setBackgroundResource(R.drawable.borde_redondo_comp)
             }
         }
 

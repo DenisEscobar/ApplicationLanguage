@@ -40,15 +40,23 @@ class IdiomaFragment : Fragment() {
 //            var toast= Toast.makeText(requireContext(), "Proximamente",Toast.LENGTH_SHORT)
 //            toast.show()
         }
-        binding.buttonJapones.setBackgroundColor(Color.parseColor("#DCDC7F"))
-        binding.buttonJapones.setOnClickListener {
+        binding.buttonJapones.setBackgroundResource(R.drawable.borde_redondo_no_comp)
+        binding.buttonJapones.setOnClickListener {view:View ->
+//            view.findNavController().navigate(R.id.action_idiomaFragment_to_temaFragment)
+//            var idioma="japones"
+//            modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
+//            modelShare.sendidioma(idioma)
             var toast= Toast.makeText(requireContext(), "Proximamente",Toast.LENGTH_SHORT)
             toast.show()
         }
-        binding.buttonRuso.setBackgroundColor(Color.parseColor("#DCDC7F"))
-        binding.buttonRuso.setOnClickListener {
-            var toast= Toast.makeText(requireContext(), "Proximamente",Toast.LENGTH_SHORT)
-            toast.show()
+//        binding.buttonRuso.setBackgroundColor(Color.parseColor("#DCDC7F"))
+        binding.buttonRuso.setOnClickListener {view:View ->
+            view.findNavController().navigate(R.id.action_idiomaFragment_to_temaFragment)
+            var idioma="ruso"
+            modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
+            modelShare.sendidioma(idioma)
+//            var toast= Toast.makeText(requireContext(), "Proximamente",Toast.LENGTH_SHORT)
+//            toast.show()
         }
         return binding.root
     }
