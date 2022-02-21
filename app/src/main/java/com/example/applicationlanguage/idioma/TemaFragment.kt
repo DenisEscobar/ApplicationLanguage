@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -25,6 +26,7 @@ class TemaFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as AppCompatActivity).supportActionBar?.title="Tema"
         val binding = DataBindingUtil.inflate<FragmentTemaBinding>(inflater,
             R.layout.fragment_tema,container,false)
         val modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)

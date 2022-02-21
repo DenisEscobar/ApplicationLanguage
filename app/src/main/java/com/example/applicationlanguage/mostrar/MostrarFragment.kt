@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,7 +23,7 @@ class MostrarFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        (activity as AppCompatActivity).supportActionBar?.title="mostrar"
         val binding = DataBindingUtil.inflate<FragmentMostrarBinding>(inflater,
             R.layout.fragment_mostrar,container,false)
 

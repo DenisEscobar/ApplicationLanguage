@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -20,6 +21,7 @@ class RegistreFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as AppCompatActivity).supportActionBar?.title="Registre"
         val binding = DataBindingUtil.inflate<FragmentRegistreBinding>(inflater,
             R.layout.fragment_registre,container,false)
         binding.registrarte.setOnClickListener { view : View ->

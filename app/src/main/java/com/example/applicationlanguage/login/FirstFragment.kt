@@ -2,6 +2,7 @@ package com.example.applicationlanguage.login
 
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -19,6 +20,8 @@ class FirstFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+       activity?.setTitle("Inici")
+       (activity as AppCompatActivity).supportActionBar?.title="Inici"
        val binding = DataBindingUtil.inflate<FragmentFirstBinding>(inflater,
            R.layout.fragment_first,container,false)
 
