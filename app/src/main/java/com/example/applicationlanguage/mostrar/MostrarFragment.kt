@@ -36,10 +36,8 @@ class MostrarFragment : Fragment() {
         val dataSource = database.getInstance(application).databaseDao
         val viewModelFactory = RoomViewModelFactory(dataSource, application)
         val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
-        //roomViewModel.verpalabras(conocimiento,idioma)
-        //binding.textViewpalabra.text = roomViewModel.getpal()?.numero.toString()
-val id = roomViewModel.mirarid(idioma,conocimiento)
-modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
+        val id = roomViewModel.mirarid(idioma,conocimiento)
+        modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
         val recyclerView: RecyclerView = binding.recyclerView
         recyclerView.layoutManager= LinearLayoutManager(this.activity)
         if(conocimiento=="numero") {

@@ -27,8 +27,6 @@ class FirstFragment : Fragment() {
        val viewModelFactory = RoomViewModelFactory(dataSource, application)
        val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
 
-       //roomViewModel.firstall()
-
         binding.buttonGoIdioma.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_firstFragment_to_idiomaFragment)
             sharedApp.prefes.name=""

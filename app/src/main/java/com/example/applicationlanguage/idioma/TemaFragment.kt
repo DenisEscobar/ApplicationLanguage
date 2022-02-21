@@ -20,7 +20,6 @@ import com.example.applicationlanguage.sharedpref.sharedApp
 import java.lang.Integer.parseInt
 
 class TemaFragment : Fragment() {
-     //val modelShare: ShareViewModel= ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,7 +34,7 @@ class TemaFragment : Fragment() {
         val viewModelFactory = RoomViewModelFactory(dataSource, application)
         val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
         var user = sharedApp.prefes.name
-        //falta poner dentro!!!
+
         var idiomanum = roomViewModel.database.getidiomaid(modelShare.getidioma(),"numero")
         if(!user.isNullOrBlank()) {
 

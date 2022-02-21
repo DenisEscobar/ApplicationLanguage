@@ -41,12 +41,14 @@ class LoginFragment : Fragment() {
                 else{
                     binding.editTextTextPersonName.setText("")
                     binding.editTextTextPassword.setText("")
+                    binding.textViewerrores.setText("")
                 }
             }else{
-                if(binding.editTextTextPassword.text.toString().isEmpty()){
-                binding.textViewerrores.setText("la contaseña no pot ser vuida")}
                 if(binding.editTextTextPersonName.text.toString().isEmpty()){
-                    binding.textViewerrores.setText("el nom no pot ser vuit")}
+                    binding.textViewerrores.setText("el nom no pot ser vuit")
+                }else if(binding.editTextTextPassword.text.toString().isEmpty()){
+                    binding.textViewerrores.setText("la contaseña no pot ser vuida")
+                }
             }
         }
         binding.textViewRegister.setOnClickListener { view : View ->
