@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,7 +23,7 @@ class MostrarFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        (activity as AppCompatActivity).supportActionBar?.title="mostrar"
         val binding = DataBindingUtil.inflate<FragmentMostrarBinding>(inflater,
             R.layout.fragment_mostrar,container,false)
 
@@ -36,10 +37,8 @@ class MostrarFragment : Fragment() {
         val dataSource = database.getInstance(application).databaseDao
         val viewModelFactory = RoomViewModelFactory(dataSource, application)
         val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
-        //roomViewModel.verpalabras(conocimiento,idioma)
-        //binding.textViewpalabra.text = roomViewModel.getpal()?.numero.toString()
-val id = roomViewModel.mirarid(idioma,conocimiento)
-modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
+        val id = roomViewModel.mirarid(idioma,conocimiento)
+        modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
         val recyclerView: RecyclerView = binding.recyclerView
         recyclerView.layoutManager= LinearLayoutManager(this.activity)
         if(conocimiento=="numero") {

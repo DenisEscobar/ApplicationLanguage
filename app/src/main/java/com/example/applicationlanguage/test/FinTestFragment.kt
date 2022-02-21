@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -21,6 +22,7 @@ class FinTestFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as AppCompatActivity).supportActionBar?.title="Fin Test"
         val binding = DataBindingUtil.inflate<FragmentFinTestBinding>(inflater,
             R.layout.fragment_fin_test,container,false)
         binding.textViewNom.setText(sharedApp.prefes.name.toString())

@@ -11,13 +11,6 @@ class RoomViewModel(
     application: Application
 ) : AndroidViewModel(application) {
 
-    private var touser = MutableLiveData<usuari?>()
-    private var toidioma = MutableLiveData<idioma?>()
-    private var todades = MutableLiveData<usuaridades?>()
-    private var tonumero = MutableLiveData<palabra_numero?>()
-    private var toalfabeto = MutableLiveData<palabra_alfabeto?>()
-    private var topalabra = MutableLiveData<palabras?>()
-
     private var infocorrecte=MutableLiveData<String>()
     private var palabra=MutableLiveData<palabra_numero>()
     private var letra=MutableLiveData<palabra_alfabeto>()
@@ -51,123 +44,10 @@ class RoomViewModel(
     fun setpalal(text: palabra_alfabeto){
         letra.value=text
     }
-    fun getpal(): palabra_numero? {return palabra.value}
-//    private fun initializeToUser(id:String) {
-//        viewModelScope.launch {
-//            touser.value = getToUserFromDatabase(id)
-//        }
-//    }
-/*
-private fun initializeTonumero(id:String) {
-    viewModelScope.launch {
-        tonumero.value = getToNumeroFromDatabase(id)
+    fun getpal(): palabra_numero? {
+        return palabra.value
     }
-}
-private fun initializeToalfabeto(id:String) {
-    viewModelScope.launch {
-        toalfabeto.value = getToAlfabetoFromDatabase(id)
-    }
-}
-private fun initializeTopalabra(id:String) {
-    viewModelScope.launch {
-        topalabra.value = getToPalabraFromDatabase(id)
-    }
-}
 
-//private suspend fun getToUserFromDatabase(id:String): usuari {
-    //var user = database.getuser(id)
-    //return user
-//}
-
-private suspend fun getToNumeroFromDatabase(id:String): palabra_numero? {
-    var numero = database.getPalabras_numero(id)
-    return numero
-}
-private suspend fun getToAlfabetoFromDatabase(id:String): palabra_alfabeto? {
-    var alfabeto = database.getPalabras_alfabeto(id)
-    return alfabeto
-}
-private suspend fun getToPalabraFromDatabase(id:String): palabras? {
-    var palabra = database.getPalabras(id)
-    return palabra
-}
-*/
-/*    fun firstall(){
-        viewModelScope.launch {
-            val idioma=idioma()
-            val paal=palabra_alfabeto()
-            val panu=palabra_numero()
-            val pala=palabras()
-            val usuda=usuaridades()
-//idioma
-            paal.id=2
-            paal.idiomaid="1"
-            paal.aprenderpalabra="b"
-            paal.localpalabra="b"
-            paal.pronunciacio_aprender="b"
-            paal.pronunciacio_local="b"
-            insertalfabeto(paal)
-
-            idioma.idiomaid="1"
-            idioma.idioma="ingles"
-            idioma.conocimiento="alfabeto"
-            idioma.tema="alfabeto"
-            insertidioma(idioma)
-
-            idioma.idiomaid="2"
-            idioma.idioma="ingles"
-            idioma.conocimiento="numero"
-            idioma.tema="numero"
-            insertidioma(idioma)
-//alfabeto
-            paal.id=1
-            paal.idiomaid="1"
-            paal.aprenderpalabra="a"
-            paal.localpalabra="a"
-            paal.pronunciacio_aprender="a"
-            paal.pronunciacio_local="a"
-            insertalfabeto(paal)
-//numero
-            panu.id=2
-            panu.idiomaid="2"
-            panu.aprenderpalabra="one"
-            panu.localpalabra="uno"
-            panu.numero=1
-            insertnumero(panu)
-
-            panu.id=3
-            panu.idiomaid="2"
-            panu.aprenderpalabra="two"
-            panu.localpalabra="dos"
-            panu.numero=2
-            insertnumero(panu)
-//userdadas
-            usuda.id=1
-            usuda.userid=1
-            usuda.idiomaid="1"
-            usuda.completado=false
-            insertuserdadas(usuda)
-
-            usuda.id=2
-            usuda.userid=1
-            usuda.idiomaid="2"
-            usuda.completado=false
-            insertuserdadas(usuda)
-        }
-    }
-    private suspend fun insertuserdadas(dada: usuaridades) {
-        database.insertdades(dada)
-    }
-    private suspend fun insertnumero(num: palabra_numero) {
-        database.insert_numero(num)
-    }
-    private suspend fun insertidioma(idioma: idioma) {
-        database.insertidioma(idioma)
-    }
-    private suspend fun insertalfabeto(p_al: palabra_alfabeto) {
-        database.insert_alfabeto(p_al)
-    }
-    */
 
     fun onRegisterUser(u:String, p:String, e:String) {
         viewModelScope.launch {
@@ -176,7 +56,6 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
             newuser.userpass=p
             newuser.useremail=e
             insertuser(newuser)
-            //touser.value = getToUserFromDatabase(""+newuser.userid)
         }
     }
 
@@ -196,30 +75,6 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
     }
     private suspend fun insertuser(user: usuari) {
         database.insertuser(user)
-    }
-    fun verpalabras(conocimiento:String,Idioma:String){
-        viewModelScope.launch {
-            var idIdioma=mirarid(Idioma,conocimiento)
-            if(conocimiento=="numero") {
-//                var id = palabraIdNumero(idIdioma)
-//                var i=0
-//                while(i<id.size){
-//                    var num = palabraNumero(id[i].toString())
-//                    setpal(num)
-//                    i++
-//                }
-
-            }else if(conocimiento=="alfabeto"){
-//                var id = getallidsalfabeto(idIdioma)
-//                var i=0
-//                while(i<id.size){
-//                    var alf = palabraletra(id[i].toString())
-//                    setpalal(alf)
-//                    i++
-//                }
-            }
-
-        }
     }
     fun mirarid(idioma:String, conocimineto:String): String {
         return database.getidiomaid(idioma, conocimineto)
@@ -272,8 +127,6 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
         return database.getFrasesfra(palabra,id)
     }
 
-
-
     fun creardades(nameid:String){
         val newuser = usuaridades()
         for(i in database.getallidiomas()){
@@ -282,22 +135,6 @@ private suspend fun getToPalabraFromDatabase(id:String): palabras? {
             newuser.completado=false
             database.insertdades(newuser)
         }
-//        newuser.userid= nameid.toLong()
-//        newuser.idiomaid="1"
-//        newuser.completado=false
-//        database.insertdades(newuser)
-//        newuser.userid= nameid.toLong()
-//        newuser.idiomaid="2"
-//        newuser.completado=false
-//        database.insertdades(newuser)
-//        newuser.userid= nameid.toLong()
-//        newuser.idiomaid="3"
-//        newuser.completado=false
-//        database.insertdades(newuser)
-//        newuser.userid= nameid.toLong()
-//        newuser.idiomaid="4"
-//        newuser.completado=false
-//        database.insertdades(newuser)
     }
     fun getuserid(name: String): String{
         return database.getiduser(name).userid.toString()

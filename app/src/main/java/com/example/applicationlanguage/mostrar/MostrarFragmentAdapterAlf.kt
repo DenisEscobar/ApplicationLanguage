@@ -17,7 +17,6 @@ class MostrarFragmentAdapterAlf(
     private val list: List<palabraAprenderAlfabeto>,
     modelShare: ShareViewModel
 ) : RecyclerView.Adapter<MostrarFragmentAdapterAlf.ViewHolder>() {
-    val Conetxt: Context=context
     val smodel: ShareViewModel = modelShare
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val nametv: TextView = view.findViewById(R.id.textViewAlf)
@@ -36,7 +35,7 @@ class MostrarFragmentAdapterAlf(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = list[position]
         holder.nametv.text = data.palabra_local.uppercase()
-        holder.nametv.setOnClickListener { view : View ->
+        holder.itemView.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_mostrarFragment_to_alfabetoMostrarFragment)
 
             smodel.sendalfa(holder.nametv.text.toString().lowercase())

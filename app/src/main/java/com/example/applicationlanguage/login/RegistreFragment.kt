@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -20,6 +21,7 @@ class RegistreFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as AppCompatActivity).supportActionBar?.title="Registre"
         val binding = DataBindingUtil.inflate<FragmentRegistreBinding>(inflater,
             R.layout.fragment_registre,container,false)
         binding.registrarte.setOnClickListener { view : View ->
@@ -30,11 +32,16 @@ class RegistreFragment : Fragment() {
                 val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
 
                 var existe=false
-
+                var usua=false
+                var ema=false
                 val a = roomViewModel.getuser()
                 for(i in a){
                     if(i.username==binding.editTextTextName.text.toString() || i.useremail==binding.editTextTextEmail.text.toString()){
                         existe=true
+                        if(existe){
+                            if(i.username==binding.editTextTextName.text.toString()){usua=true}
+                            if(i.useremail==binding.editTextTextEmail.text.toString()){ema=true}
+                        }
                     }
                 }
                 if(binding.editTextTextEmail.text.contains("@")) {
@@ -53,7 +60,9 @@ class RegistreFragment : Fragment() {
 
                         view.findNavController().navigate(R.id.action_registreFragment_to_idiomaFragment)
                     } else {
-                        binding.TextViewerror.setText("el email o usuari existeix")
+                        if(usua && ema){binding.TextViewerror.setText("el email i usuari existeix")}
+                        else if(ema){binding.TextViewerror.setText("el email existeix")}
+                        else if(usua){binding.TextViewerror.setText("el usuari existeix")}
                     }
                 }else{
                     binding.TextViewerror.setText("no es tipus email")

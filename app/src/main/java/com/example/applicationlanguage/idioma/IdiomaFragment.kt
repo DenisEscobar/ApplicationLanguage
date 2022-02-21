@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -22,6 +23,7 @@ class IdiomaFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as AppCompatActivity).supportActionBar?.title="Idioma"
         val binding = DataBindingUtil.inflate<FragmentIdiomaBinding>(inflater,
             R.layout.fragment_idioma,container,false)
 
@@ -31,14 +33,11 @@ class IdiomaFragment : Fragment() {
             modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
             modelShare.sendidioma(idioma)
         }
-        //binding.buttonFrances.setBackgroundColor(Color.parseColor("#DCDC7F"))
         binding.buttonFrances.setOnClickListener {view:View ->
             view.findNavController().navigate(R.id.action_idiomaFragment_to_temaFragment)
             var idioma="frances"
             modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
             modelShare.sendidioma(idioma)
-//            var toast= Toast.makeText(requireContext(), "Proximamente",Toast.LENGTH_SHORT)
-//            toast.show()
         }
         binding.buttonJapones.setBackgroundResource(R.drawable.borde_redondo_no_comp)
         binding.buttonJapones.setOnClickListener {view:View ->
@@ -49,14 +48,11 @@ class IdiomaFragment : Fragment() {
             var toast= Toast.makeText(requireContext(), "Proximamente",Toast.LENGTH_SHORT)
             toast.show()
         }
-//        binding.buttonRuso.setBackgroundColor(Color.parseColor("#DCDC7F"))
         binding.buttonRuso.setOnClickListener {view:View ->
             view.findNavController().navigate(R.id.action_idiomaFragment_to_temaFragment)
             var idioma="ruso"
             modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
             modelShare.sendidioma(idioma)
-//            var toast= Toast.makeText(requireContext(), "Proximamente",Toast.LENGTH_SHORT)
-//            toast.show()
         }
         return binding.root
     }

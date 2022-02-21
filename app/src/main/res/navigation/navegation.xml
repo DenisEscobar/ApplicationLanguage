@@ -8,17 +8,29 @@
     <fragment
         android:id="@+id/firstFragment"
         android:name="com.example.applicationlanguage.login.FirstFragment"
-        android:label="fragment_first"
-        tools:layout="@layout/fragment_first" >
+        android:label="Inici"
+        tools:layout="@layout/fragment_first">
         <action
             android:id="@+id/action_firstFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
         <action
             android:id="@+id/action_firstFragment_to_registreFragment"
-            app:destination="@id/registreFragment" />
+            app:destination="@id/registreFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
         <action
             android:id="@+id/action_firstFragment_to_idiomaFragment"
             app:destination="@id/idiomaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"
             app:popUpTo="@id/firstFragment"
             app:popUpToInclusive="false" />
     </fragment>
@@ -30,11 +42,19 @@
         <action
             android:id="@+id/action_loginFragment_to_idiomaFragment"
             app:destination="@id/idiomaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"
             app:popUpTo="@id/firstFragment"
             app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_loginFragment_to_registreFragment"
-            app:destination="@id/registreFragment" />
+            app:destination="@id/registreFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/registreFragment"
@@ -44,6 +64,10 @@
         <action
             android:id="@+id/action_registreFragment_to_idiomaFragment"
             app:destination="@id/idiomaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"
             app:popUpTo="@id/firstFragment"
             app:popUpToInclusive="false" />
     </fragment>
@@ -54,7 +78,11 @@
         tools:layout="@layout/fragment_idioma" >
         <action
             android:id="@+id/action_idiomaFragment_to_temaFragment"
-            app:destination="@id/temaFragment" />
+            app:destination="@id/temaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/temaFragment"
@@ -63,10 +91,18 @@
         tools:layout="@layout/fragment_tema" >
         <action
             android:id="@+id/action_temaFragment_to_paraulasOTestFragment"
-            app:destination="@id/paraulasOTestFragment" />
+            app:destination="@id/paraulasOTestFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
         <action
             android:id="@+id/action_temaFragment_to_conocimientoFragment"
-            app:destination="@id/conocimientoFragment" />
+            app:destination="@id/conocimientoFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/paraulasOTestFragment"
@@ -75,10 +111,18 @@
         tools:layout="@layout/fragment_paraulas_o_test" >
         <action
             android:id="@+id/action_paraulasOTestFragment_to_testFragment"
-            app:destination="@id/testFragment" />
+            app:destination="@id/testFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
         <action
             android:id="@+id/action_paraulasOTestFragment_to_mostrarFragment"
-            app:destination="@id/mostrarFragment" />
+            app:destination="@id/mostrarFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/testFragment"
@@ -88,6 +132,10 @@
         <action
             android:id="@+id/action_testFragment_to_finTestFragment"
             app:destination="@id/finTestFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"
             app:popUpTo="@id/temaFragment"
             app:popUpToInclusive="false" />
     </fragment>
@@ -99,6 +147,10 @@
         <action
             android:id="@+id/action_finTestFragment_to_temaFragment"
             app:destination="@id/temaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"
             app:popUpTo="@id/temaFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -109,7 +161,11 @@
         tools:layout="@layout/fragment_conocimiento" >
         <action
             android:id="@+id/action_conocimientoFragment_to_paraulasOTestFragment"
-            app:destination="@id/paraulasOTestFragment" />
+            app:destination="@id/paraulasOTestFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/mostrarFragment"
@@ -119,6 +175,10 @@
         <action
             android:id="@+id/action_mostrarFragment_to_alfabetoMostrarFragment"
             app:destination="@id/alfabetoMostrarFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"
             app:popUpTo="@id/mostrarFragment"
             app:popUpToInclusive="false" />
     </fragment>

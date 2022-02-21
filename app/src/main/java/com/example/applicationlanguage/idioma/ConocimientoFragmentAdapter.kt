@@ -20,7 +20,6 @@ class ConocimientoFragmentAdapter(
     private val roomViewModel: RoomViewModel,
     modelShare: ShareViewModel
 ) : RecyclerView.Adapter<ConocimientoFragmentAdapter.ViewHolder>() {
-    val Conetxt: Context =context
     val smodel: ShareViewModel = modelShare
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val nametv: Button = view.findViewById(R.id.buttonConocimiento)
@@ -48,7 +47,7 @@ class ConocimientoFragmentAdapter(
                 roomViewModel.getuserid(user.toString()),
                 idiomanum
             )
-            if (compnum.completado == true) {
+            if (compnum.completado) {
                 holder.nametv.setBackgroundResource(R.drawable.borde_redondo_comp)
             }
         }

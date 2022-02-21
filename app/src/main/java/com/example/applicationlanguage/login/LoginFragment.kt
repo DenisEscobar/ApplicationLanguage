@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -22,6 +23,7 @@ class LoginFragment : Fragment() {
     ): View? {
         val binding = DataBindingUtil.inflate<FragmentLoginBinding>(inflater,
             R.layout.fragment_login,container,false)
+        (activity as AppCompatActivity).supportActionBar?.title="Login"
         binding.buttonlogin.setOnClickListener {
             if(!binding.editTextTextPersonName.text.toString().isEmpty() && !binding.editTextTextPassword.text.toString().isEmpty()){
 
@@ -41,12 +43,14 @@ class LoginFragment : Fragment() {
                 else{
                     binding.editTextTextPersonName.setText("")
                     binding.editTextTextPassword.setText("")
+                    binding.textViewerrores.setText("")
                 }
             }else{
-                if(binding.editTextTextPassword.text.toString().isEmpty()){
-                binding.textViewerrores.setText("la contaseña no pot ser vuida")}
                 if(binding.editTextTextPersonName.text.toString().isEmpty()){
-                    binding.textViewerrores.setText("el nom no pot ser vuit")}
+                    binding.textViewerrores.setText("el nom no pot ser vuit")
+                }else if(binding.editTextTextPassword.text.toString().isEmpty()){
+                    binding.textViewerrores.setText("la contaseña no pot ser vuida")
+                }
             }
         }
         binding.textViewRegister.setOnClickListener { view : View ->

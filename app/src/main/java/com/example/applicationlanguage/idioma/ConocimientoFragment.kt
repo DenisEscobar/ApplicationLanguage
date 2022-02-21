@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -27,6 +28,7 @@ class ConocimientoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as AppCompatActivity).supportActionBar?.title="Conocimiento"
         val binding = DataBindingUtil.inflate<FragmentConocimientoBinding>(
             inflater,
             R.layout.fragment_conocimiento, container, false
@@ -40,9 +42,6 @@ class ConocimientoFragment : Fragment() {
         val dataSource = database.getInstance(application).databaseDao
         val viewModelFactory = RoomViewModelFactory(dataSource, application)
         val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
-        //roomViewModel.verpalabras(conocimiento,idioma)
-        //binding.textViewpalabra.text = roomViewModel.getpal()?.numero.toString()
-        var idiomaid=roomViewModel.miraridtema(idioma,tema)
         modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
         val recyclerView: RecyclerView = binding.recyclerViewConocimiento
         recyclerView.layoutManager= LinearLayoutManager(this.activity)
@@ -52,31 +51,6 @@ class ConocimientoFragment : Fragment() {
             roomViewModel,
             modelShare
         )
-
-
-
-
-
-//        val modelShare = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
-//        if (modelShare.gettema().toString() == "vocabulario") {
-//
-//            binding.buttonSentimiento.text="Sentimiento"
-//            binding.buttonSentimiento.setOnClickListener { view: View ->
-//                view.findNavController()
-//                    .navigate(R.id.action_conocimientoFragment_to_paraulasOTestFragment)
-//                var conocimiento = "sentimiento"
-//                modelShare.sendconocimiento(conocimiento.toString())
-//            }
-//        }else if(modelShare.gettema().toString() == "frases"){
-//            binding.buttonSentimiento.text="personas"
-//            binding.buttonSentimiento.setOnClickListener { view: View ->
-//                view.findNavController()
-//                    .navigate(R.id.action_conocimientoFragment_to_paraulasOTestFragment)
-//                var conocimiento = "personas"
-//                modelShare.sendconocimiento(conocimiento.toString())
-//            }
-//        }
-
         return binding.root
     }
 }
